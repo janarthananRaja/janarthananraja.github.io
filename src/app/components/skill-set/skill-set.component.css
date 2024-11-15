@@ -1,0 +1,105 @@
+/* body {
+    background: #e3edf7;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .skill {
+ 
+    height: 160px;
+    position: relative;
+  }
+  
+  .outer {
+    height: 160px;
+    width: 160px;
+    border-radius: 50%;
+    padding: 20px;
+    box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15),
+      -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
+  }
+  
+  .inner {
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 4px 4px 6px -1px rgba(0, 0, 0, 0.2),
+      inset -4px -4px 6px -1px rgba(255, 255, 255, 0.7),
+      -0.5px -0.5px 0px rgba(255, 255, 255, 1),
+      0.5px 0.5px 0px rgba(0, 0, 0, 0.15), 0px 12px 10px -10px rgba(0, 0, 0, 0.05);
+  }
+  
+  #number {
+    font-weight: 600;
+    color: #555;
+  }
+  
+  circle {
+    fill: none;
+    stroke: url(#GradientColor);
+    stroke-width: 20px;
+    stroke-dasharray: 440; 
+    animation: anim 2s linear forwards;
+  }
+  
+  .html-circle-skill {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+  }
+  
+  
+
+  @keyframes anim {
+    100% {
+    }
+} */
+
+
+.skillbgc {
+  width: 90%;
+  opacity: 0.1;
+  right: 5%;
+  top: 0; /* Optional: Ensure it's positioned correctly */
+  z-index: 1;
+}
+
+.cursor-pointer{
+    cursor: pointer;
+}
+
+.skill-image {
+  object-fit: contain;
+  height: 100%;
+  width: 100%;
+  max-width: 100px; /* Optional: Limit image width to maintain consistent layout */
+  max-height: 100px; /* Optional: Limit image height */
+  filter: grayscale(1);
+  transition: all .2s ease-in-out;
+}
+.skill-image:hover{
+  filter: grayscale(0);
+  scale: 1.1;
+}
+.skill-image:active{
+  transition: all .2s ease-in-out;
+ filter: drop-shadow(1px 1px 10px rgba(0, 0, 0, 0.348));
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.col-3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 15px; 
+}

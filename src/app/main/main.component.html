@@ -1,0 +1,64 @@
+<div class="main vh-100 vw-100  overflow-x-hidden" #home>
+    <div class="hero-image ">
+        <div class="row ">
+            <div class="header-leiste col-5 ">
+                <div class="welcome pb-1 border shadow ps-1">
+                    <div class="my-auto"><img src="../../assets/hero_setup.avif" height="40px" class="rounded-5"></div>
+                    <div>
+                        <p>JANARTHANAN RAJA</p>
+                        <hr class="my-1" />
+                        <div class="sub text-center">
+                            <ul class="m-0  ">
+                                <li class="cursor-pointer my-2 " (click)="scrollToSection('home')"><i class="bi bi-house-door-fill"></i></li>
+                                <li class="cursor-pointer my-2 " (click)="scrollToSection('project')">Project</li>
+                                <li class="cursor-pointer my-2 " (click)="scrollToSection('skill')">Skill</li>
+                                <li class="cursor-pointer my-2 " (click)="scrollToSection('contact')">Contact</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="logo-text col py-3">
+                <div class="container pt-3">
+                    <p class="typingText " style=" height: 70px;">{{ typingText.length>0?typingText:"" }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-8 text-white fw-semibold fs-5">
+                    <h1>
+                        Hi, My name is Janarthanan Raja, a full-stack developer. I have worked on a wide range of web
+                        development project
+                        by usign AngularTs and SpringBoot Applications in sports scoring platform,banking plateform,
+                        with a
+                        focus on creating clean, well-crafted interfaces
+                        and functionallity that not only look great but also provide a seamless user experience.
+                    </h1>
+                </div>
+                <div class="col-3">
+                    <img src="../../assets/hero_setup.avif" alt="" height="400px"
+                        style="mask-image: radial-gradient(circle, rgb(0, 0, 0) 50%, rgba(0, 0, 0, 0) 66%);">
+                </div>
+            </div>
+        </div>
+    </div>
+    <svg class="svg-curve" viewBox="0 0 1440 79" style="fill:  rgb(10, 0, 27);" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 79C-100 79 218.416 23.165 693.5 23.165C1168.58 23.165 1487 79 1487 79V0H-100V79Z"></path>
+    </svg>
+    <div #project>
+        <app-project></app-project>
+    </div>
+    <div #skill>
+        <app-skill-set *ngIf="this.isSkillSection"></app-skill-set>
+    </div>
+    <svg class="svg-curve   " style="fill:  rgb(10, 0, 27); margin: 10px 0px 0px 0px ;" viewBox="0 0 1440 79"
+        xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 0C-100 0 218.416 55.835 693.5 55.835C1168.58 55.835 1487 0 1487 0V79H-100V0Z"></path>
+    </svg>
+    <div class="aboutsection">
+        <div class="aboutImgContainer ">
+            <img src="../../assets/Techbigs.com PicsArt_11-12-06.17.05.png" alt="" class="aboutsectionImg" style="">
+        </div>
+    </div>
+</div>
