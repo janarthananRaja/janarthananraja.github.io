@@ -61,21 +61,21 @@ export class SkillSetComponent  {
 
   skillList = {
     codeSkill: [
-      { name: 'Angular', imgUrl: '/assets/images/skills/angular.png', workExperience: '1 year', trainingExperience: '8 months', efficient:90 ,dashOffset:110},
-      { name: 'SpringBoot', imgUrl: '/assets/images/skills/springboot.png', workExperience: '1 year', trainingExperience: '8 months',efficient:85 ,dashOffset:110},
-      { name: 'HTML', imgUrl: '/assets/images/skills/html.png', workExperience: '1 year', trainingExperience: '8 months' ,efficient:95},
-      { name: 'CSS', imgUrl: '/assets/images/skills/css.png', workExperience: '1 year', trainingExperience: '8 months' ,efficient:95},
-      { name: 'JavaScript', imgUrl: '/assets/images/skills/js.png', workExperience: '1 year', trainingExperience: '8 months' ,efficient:90},
-      { name: 'Java', imgUrl: '/assets/images/skills/java.png', workExperience: '1 year', trainingExperience: '8 months',efficient:80 ,dashOffset:110},
-      { name: 'jsp', imgUrl: '/assets/images/skills/jsp.png', workExperience: '1 year', trainingExperience: '8 months',efficient:50 ,dashOffset:110},
-      { name: 'React', imgUrl: '/assets/images/skills/react.png', workExperience: '1 year', trainingExperience: '8 months',efficient:83 ,dashOffset:110},
-      { name: 'Sql', imgUrl: '/assets/images/skills/sql.png', workExperience: '1 year', trainingExperience: '8 months',efficient:75 ,dashOffset:110},
+      { name: 'Angular', imgUrl: './assets/images/skills/angular.png', workExperience: '1 year', trainingExperience: '8 months', efficient:90 ,dashOffset:110},
+      { name: 'SpringBoot', imgUrl: './assets/images/skills/springboot.png', workExperience: '1 year', trainingExperience: '8 months',efficient:85 ,dashOffset:110},
+      { name: 'HTML', imgUrl: './assets/images/skills/html.png', workExperience: '1 year', trainingExperience: '8 months' ,efficient:95},
+      { name: 'CSS', imgUrl: './assets/images/skills/css.png', workExperience: '1 year', trainingExperience: '8 months' ,efficient:95},
+      { name: 'JavaScript', imgUrl: './assets/images/skills/js.png', workExperience: '1 year', trainingExperience: '8 months' ,efficient:90},
+      { name: 'Java', imgUrl: './assets/images/skills/java.png', workExperience: '1 year', trainingExperience: '8 months',efficient:80 ,dashOffset:110},
+      { name: 'jsp', imgUrl: './assets/images/skills/jsp.png', workExperience: '1 year', trainingExperience: '8 months',efficient:50 ,dashOffset:110},
+      { name: 'React', imgUrl: './assets/images/skills/react.png', workExperience: '1 year', trainingExperience: '8 months',efficient:83 ,dashOffset:110},
+      { name: 'Sql', imgUrl: './assets/images/skills/sql.png', workExperience: '1 year', trainingExperience: '8 months',efficient:75 ,dashOffset:110},
     ],
       otherSkill: [
-        { name: 'Figma', imgUrl:'/assets/images/skills/figma.png' },
-        { name: 'git', imgUrl:'/assets/images/skills/git.png' },
-        { name: 'picsart', imgUrl:'/assets/images/skills/picsart.png' },
-        { name: 'powerdirector', imgUrl:'/assets/images/skills/powerdirector.png' },
+        { name: 'Figma', imgUrl:'./assets/images/skills/figma.png' },
+        { name: 'git', imgUrl:'./assets/images/skills/git.png' },
+        { name: 'picsart', imgUrl:'./assets/images/skills/picsart.png' },
+        { name: 'powerdirector', imgUrl:'./assets/images/skills/powerdirector.png' },
 
       ]
     }
