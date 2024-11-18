@@ -11,20 +11,20 @@
     </object>
   </figure>
   <div class="col-12" style="z-index: 2;">
-    <div class="row row-gap-4 mx-auto text-center container">
+    <div class="row row-gap-4 mx-auto text-center container justify-content-start">
       <div class="col-3 d-flex flex-column align-items-center" *ngFor="let item of skillList.codeSkill" (click)="openDialog(item)">
         <img [src]="item.imgUrl" alt="{{item.name}}" class="skill-image cursor-pointer">
         <p class="pt-2 m-0">{{item.name}}</p>
       </div>
     </div>
   </div>
-  <div class="col-12 text-center " style="z-index: 2; color: rgb(23, 66, 126); ">
+  <div class="col-12 text-center pb-3" style="z-index: 2; color: rgb(23, 66, 126); ">
     <h2 class="m-0 p-0   fw-bold">Supportive Skill</h2>
-    <p class="m-0 p-0">Highlighting the Other-technical skills I've acquired.</p>
+    <p class="m-0 p-0">Highlighting the Other-technical skills & Libraries I've acquired.</p>
   </div>
   <div class="col-12" style="z-index: 2;">
-    <div class="row row-gap-4 mx-auto text-center container">
-      <div class="col-3 d-flex flex-column align-items-center" *ngFor="let item of skillList.otherSkill" >
+    <div class="row row-gap-4 mx-auto text-center container justify-content-start">
+      <div class="col-3 d-flex flex-column align-items-center" *ngFor="let item of skillList.otherSkill" (click)="openDialog(item)" >
         <img [src]="item.imgUrl" alt="{{item.name}}" class="skill-image cursor-pointer">
         <p class="pt-2 m-0">{{item.name}}</p>
       </div>

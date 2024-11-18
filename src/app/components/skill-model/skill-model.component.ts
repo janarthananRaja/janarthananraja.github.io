@@ -26,7 +26,7 @@ export class SkillModelComponent {
         clearInterval(interval); 
       } else {
         counter += 1;
-        number.innerHTML = this.skillData.name+ counter + "%"; 
+        number.innerHTML = this.skillData.name+ counter +'%'; 
       }
     }, 15); 
   }

@@ -7,6 +7,11 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { SkillSetComponent } from './components/skill-set/skill-set.component';
 import { ProjectComponent } from './components/project/project.component';
 import { SkillModelComponent } from './components/skill-model/skill-model.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -19,7 +24,12 @@ import { SkillModelComponent } from './components/skill-model/skill-model.compon
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MatDialogModule
+    MatDialogModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatButtonModule,
+    MatSnackBarModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

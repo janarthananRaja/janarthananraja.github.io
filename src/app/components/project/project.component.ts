@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SnackBarService } from 'src/app/services/snack-bar';
 
 @Component({
   selector: 'app-project',
@@ -6,7 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./project.component.css']
 })
 export class ProjectComponent {
-
+  constructor(private snackBarService: SnackBarService) {}
   cardData = [
     {
       hind:'SPORTS BASED',
@@ -14,7 +15,8 @@ export class ProjectComponent {
       imageUrl: './assets/images/sportsruler.png',
       website:'http://www.sportsruler.com/SR/home',
       description: 'SportsRuler is an endeavor to get all players of the Sports Eco system under one platform. It can help record scores, compute statistics, provide analytics just like how professionals would get access to data and information, every single passionate person can too.',
-      visible: true
+      visible: true,
+      duration:10 
     },
     {
       hind:'SPORTS BASED',
@@ -22,7 +24,8 @@ export class ProjectComponent {
       imageUrl: './assets/images/sportsrulerApp.png',
       website:'http://www.sportsruler.com/SR/home',
       description: 'SportsRuler is an app designed for updating live cricket scores. It allows users to record match scores, compute statistics, and provide real-time analytics. Whether you’re a professional or a passionate cricket fan, SportsRuler helps you update the score and keep track of the game with ease.',
-      visible: true
+      visible: true,
+      duration:10 
     },
     {
       hind:'COMPANY SITE',
@@ -30,7 +33,8 @@ export class ProjectComponent {
       imageUrl: './assets/images/prodian.png',
       website:'http://www.sportsruler.com/SR/home',
       description: "It's a company website for my current workplace, developed using Angular, TypeScript, and Spring Boot. In this site, I have incorporated common technologies such as Angular Material, Bootstrap, and shared services for efficient and reusable components.",
-      visible: true
+      visible: true,
+      duration:1  
     },
     {
       hind:'BANK BASED (UI LEVEL)',
@@ -38,7 +42,8 @@ export class ProjectComponent {
       website:'http://www.sportsruler.com/SR/home',
       imageUrl: './assets/images/ABS.png',
       description: 'Morgan has collected ants since they were six years old and now has many dozen ants but none in their pants.',
-      visible: true
+      visible: true,
+      duration:1 
     },
     {
       hind:'BANK BASED (UI LEVEL)',
@@ -46,7 +51,8 @@ export class ProjectComponent {
       website:'http://www.sportsruler.com/SR/home',
       imageUrl: 'https://images.unsplash.com/photo-1506755855567-92ff770e8d00?ixlib=rb-1.2.1&auto=format&fit=crop&w=1268&q=80',
       description: 'SportsRuler is an app designed for updating live cricket scores. It allows users to record match scores, compute statistics, and provide real-time analytics. Whether you’re a professional or a passionate cricket fan, SportsRuler helps you update the score and keep track of the game with ease.',
-      visible: true
+      visible: true,
+      duration:2 
     },
     {
       hind:'BANK BASED (UI LEVEL)',
@@ -54,7 +60,8 @@ export class ProjectComponent {
       website:'http://www.sportsruler.com/SR/home',
       imageUrl: './assets/images/RRCS.png',
       description: 'Adrian has collected flies since they were six years old and now has many dozen flies but none in their pants.',
-      visible: true
+      visible: true,
+      duration:2
     },
   ];
 
@@ -73,6 +80,9 @@ export class ProjectComponent {
     setTimeout(() => {
       this.cardData[index].visible = true;
     }, 100);
+  }
+  openSnackBar(project:any,duration:any){
+    this.snackBarService.openSnackBar(`I worked on ${project.toLowerCase()} as a team member for ${duration} months.`);
   }
 
 }
