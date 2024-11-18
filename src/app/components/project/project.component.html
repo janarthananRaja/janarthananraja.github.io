@@ -12,10 +12,8 @@
                     <div class="project col-3" *ngFor="let card of cardData; let i = index"
                         (mouseenter)="enableCardVisibility(i)" (mouseleave)="diableCardVisibility(i)">
                         <div class="project-wrap overflow-hidden rounded-3">
-                            <div style="background-image: url({{card.imageUrl}}), url(./images/bay.webp)"
-                                class="project-img"
-                                data-img="background-image: url(./images/bay.avif), url(./images/bay.webp)"
-                                data-bay-click="this.image_click(e)" data-ee449709=""
+                            <div style="background-image: url({{card.imageUrl}})"
+                                class="project-img"              
                                 (click)="openExternalLink(card.website)">
                             </div>
                             <div class="project-text">
