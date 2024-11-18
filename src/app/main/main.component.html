@@ -1,7 +1,7 @@
 <div class="main vh-100 vw-100  overflow-x-hidden" #home>
     <div class="hero-image ">
         <div class="row ">
-            <div class="header-leiste col-5 ">
+            <div class="header-leiste col-lg-5 col-12">
                 <div class="welcome pb-1 border shadow ps-1">
                     <div class="my-auto"><img src="./assets/hero_setup.avif" height="40px" class="rounded-5"></div>
                     <div>
@@ -9,7 +9,7 @@
                         <hr class="my-1" />
                         <div class="sub text-center">
                             <ul class="m-0  ">
-                                <li class="cursor-pointer my-2 " (click)="scrollToSection('home')"><i class="bi bi-house-door-fill"></i></li>
+                                <li class="cursor-pointer my-2 " (click)="scrollToSection('home')">About</li>
                                 <li class="cursor-pointer my-2 " (click)="scrollToSection('project')">Project</li>
                                 <li class="cursor-pointer my-2 " (click)="scrollToSection('skill')">Skill</li>
                                 <li class="cursor-pointer my-2 " (click)="scrollToSection('contact')">Contact</li>
@@ -18,32 +18,40 @@
                     </div>
                 </div>
             </div>
-            <div class="logo-text col py-3">
+            <div class="logo-text col py-3" style="z-index: 2;">
                 <div class="container pt-3">
-                    <p class="typingText " style=" height: 70px;">{{ typingText.length>0?typingText:"" }}</p>
+                    <p class="typingText" style=" height: 70px;">{{ typingText.length>0?typingText:"" }}</p>
                 </div>
             </div>
         </div>
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-8 text-white fw-semibold fs-5">
-                    <h1>
-                        Hi, My name is Janarthanan Raja, a full-stack developer. I have worked on a wide range of web
-                        development project
-                        by usign AngularTs and SpringBoot Applications in sports scoring platform,banking plateform,
-                        with a
+        <div class="container" #home>
+            <div class="row align-items-center position-relative">
+                <div class="col-lg-8 col-md-8 col-11 text-white fw-semibold fs-5">
+                    <h1 class="introText fs-6 fst-italic" style="    text-shadow: 2px 2px 14px #00aaff;">
+                        Hi, My name is Janarthanan Raja <br>
+                        A full-stack developer. <br> 
+                        <p class="m-0 p-0">
+                        I have worked on a wide range of web development project
+                        by usign AngularTs and SpringBoot Applications in sports scoring platform,banking plateform, with a
                         focus on creating clean, well-crafted interfaces
                         and functionallity that not only look great but also provide a seamless user experience.
+                        </p>
                     </h1>
+                    <div class="row row-gap-3">
+                        <div class="col-lg-6 col-md-6 col-12 text-info">Email : <a href="mailto:janarthananlyfc@gmail.com" class="text-white text-decoration-none text-decoration-underline fs-6 fw-normal">janarthananlyfc@gmail.com</a></div>
+                        <div class="col-lg-6 col-md-6 col-12 text-info">Place : <p class="m-0 p-0 text-white  fs-6 fw-normal d-inline">Nagai, India - 614806</p></div>
+                        <div class="col-12"><div class="btn btn-bordered btn-primary rounded-pill  resumeBtn mb-3">Get Resume</div></div>
+                    </div>
                 </div>
-                <div class="col-3">
+                <div class="col-3 introImg">
                     <img src="./assets/hero_setup.avif" alt="" height="400px"
                         style="mask-image: radial-gradient(circle, rgb(0, 0, 0) 50%, rgba(0, 0, 0, 0) 66%);">
                 </div>
             </div>
+            
         </div>
     </div>
-    <svg class="svg-curve" viewBox="0 0 1440 79" style="fill:  rgb(10, 0, 27);" xmlns="http://www.w3.org/2000/svg">
+    <svg class="svg-curve svg-top" viewBox="0 0 1440 79" style="fill:  rgb(10, 0, 27);" xmlns="http://www.w3.org/2000/svg">
         <path d="M-100 79C-100 79 218.416 23.165 693.5 23.165C1168.58 23.165 1487 79 1487 79V0H-100V79Z"></path>
     </svg>
     <div #project>

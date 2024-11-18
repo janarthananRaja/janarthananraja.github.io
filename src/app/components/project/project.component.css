@@ -176,3 +176,14 @@
 .cursor-pointer{
     cursor: pointer;
 }
+.carousel-control-prev-icon,.carousel-control-next-icon {
+	filter: invert(1) !important;
+	opacity: .3;
+}
+.carousel-control-prev{
+	left: -11px;
+}
+.carousel-control-next{
+	right: -11px;
+}
+

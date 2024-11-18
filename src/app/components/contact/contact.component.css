@@ -4,3 +4,19 @@
   .aboutsection{
     background-color:  rgb(10, 0, 27);
   }
+  @media screen and (max-width:460px){
+    .contactInfo h2{
+        line-height: normal !important;
+    }
+    .contactLinks{
+        font-size: x-small;
+    }
+    h1{
+        font-size: 1rem;
+    }
+    .conclusion
+    {
+        font-size: 7px;
+        line-height: normal;
+    }
+  }
