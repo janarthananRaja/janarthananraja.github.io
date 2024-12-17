@@ -55,13 +55,24 @@
         <path d="M-100 79C-100 79 218.416 23.165 693.5 23.165C1168.58 23.165 1487 79 1487 79V0H-100V79Z"></path>
     </svg>
     <div #project>
-        <app-project></app-project>
+        <button
+            class="btn rounded-end-pill border btn-primary changeDesisn text-end text-nowrap"
+            (click)="changeStyle()" (mouseenter)="changeText('Change Design')" (mouseleave)="changeText('')"
+           >{{changeContent}}
+        </button>
+        <app-project *ngIf="currentStyle == 'cards'"></app-project>
+        <div class="position-relative" *ngIf="currentStyle == 'list'">
+            <app-test></app-test>
+        </div>
     </div>
+    
+    
+  
     <div #skill>
         <app-skill-set *ngIf="this.isSkillSection"></app-skill-set>
     </div>
     <div #contact>
-        <svg class="svg-curve   " style="fill:  rgb(10, 0, 27); margin: 10px 0px 0px 0px ;" viewBox="0 0 1440 79"
+        <svg class="svg-curve   " style="fill:  rgb(10, 0, 27); margin: 15px 0px 0px 0px ;" viewBox="0 0 1440 79"
         xmlns="http://www.w3.org/2000/svg">
         <path d="M-100 0C-100 0 218.416 55.835 693.5 55.835C1168.58 55.835 1487 0 1487 0V79H-100V0Z"></path>
     </svg>

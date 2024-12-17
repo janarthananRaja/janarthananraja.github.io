@@ -1,0 +1,55 @@
+<!-- <div class="container">
+    <input type="radio" name="slider" id="item-1" (change)="changeSlide(1)" [checked]="currentSlide === 1">
+    <input type="radio" name="slider" id="item-2" (change)="changeSlide(2)" [checked]="currentSlide === 2">
+    <input type="radio" name="slider" id="item-3" (change)="changeSlide(3)" [checked]="currentSlide === 3">
+  
+    <div class="cards">
+      <label class="card" for="item-1" id="song-1">
+        <img src="../../../assets/images/harigurus-removebg-preview.png" alt="song">
+      </label>
+      <label class="card" for="item-2" id="song-2">
+        <img src="https://images.unsplash.com/photo-1559386484-97dfc0e15539?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1234&q=80" alt="song">
+      </label>
+      <label class="card" for="item-3" id="song-3">
+        <img src="https://images.unsplash.com/photo-1533461502717-83546f485d24?ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60" alt="song">
+      </label>
+    </div>
+
+  </div>
+   -->
+<div class="d-block d-md-block d-lg-none my-4 mt-5 pt-3">
+  <div class="container position-relative">
+    <div class="projectImgSm d-flex">
+      <img src="./assets/images/mobileLaptop.png" width="100%" class="mx-auto" alt="">
+    </div>
+    <div class="position-absolute w-75 mobile">
+      <div class="container">
+        <ng-container *ngFor="let card of cardData; let i = index">
+          <input type="radio" name="slider" [id]="'item-' + (i + 1)" (change)="changeSlide(i + 1)"
+            [checked]="currentSlide === (i + 1)">
+        </ng-container>
+        <div class="cards">
+          <label class="card" *ngFor="let card of cardData; let i = index" [for]="'item-' + (i + 1)"
+            [id]="'song-' + (i + 1)">
+            <img [src]="card?.imageUrl" alt="song">
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="description" *ngFor="let item of cardData let i = index">
+  <div *ngIf="currentSlide==i + 1">
+  <div class="container text-body-emphasis fw-medium" >
+    {{item.description}}
+  </div>
+  <div>
+    <h2 class="m-0 p-0 fw-bold text-center mb-3" style="color: rgb(23, 66, 126);">Used Techs</h2>    
+    <ul class="list-unstyled row gap-3 justify-content-around px-3"  >
+      <li *ngFor="let usedTech of item.usedTech" class="col-3 rounded-pill border text-center py-2 techList">#{{usedTech}}</li>
+    </ul>
+  </div>
+</div>
+</div>

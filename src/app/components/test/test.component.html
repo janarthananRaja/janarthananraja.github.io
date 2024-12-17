@@ -1,0 +1,88 @@
+<!-- <div class="container">
+  <div class="vertical-line"></div>
+
+
+<div class="project row" *ngFor="let item of cardData">
+  <div class="project-img col-4">
+    <div class="project-img-wrapper">
+      <a href="https://www.harigurus.com/" target="_blank">
+        <img src="/assets/images/harigurus-removebg-preview.png" class="porjectImage" height="300px" alt="project image" draggable="false">
+      </a>
+      <a href="/assets/images/harigurus.jpg" target="_blank">
+        <span class="visit-site">{{item.website}}
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+            <polyline points="15 3 21 3 21 9"></polyline>
+            <line x1="10" y1="14" x2="21" y2="3"></line>
+          </svg>
+        </span>
+      </a>
+    </div>
+  </div>
+  <div class="col my-auto p-0"><div class="circle ms-auto my">
+  </div> <div class="horizontalLine"></div></div>  
+  <div class="project-details col-6">
+    <h3>{{item.name}}</h3>
+    <p>
+      {{item.description}}
+    </p>
+
+    <ul class="row usedLang justify-content-between list-unstyled  gap-3">
+      <li class="col-lg-2 my-auto d-flex  col-md-3 border rounded-pill"><p class="m-auto"> #react.js</p></li>
+    </ul>
+  </div>
+</div>
+</div> -->
+
+<div class="d-flex flex-column position-relative" style="top: 24px;">
+  <h2 class=" mx-auto my-0 fw-bold" style="color: rgb(23, 66, 126);;">My Work</h2>
+  <button class="btn btn-primary mx-auto rounded-bottom-4" style="z-index: 1; background-color: rgb(18 55 107);">A collection of projects I've worked on</button>
+</div>
+<div class="container position-relative d-none d-lg-block">
+  <div class="vertical-line"></div>
+
+  <div 
+    class="project row my-4  " 
+    *ngFor="let item of cardData; let i = index" 
+    [ngClass]="{ 'reverse-layout': i % 2 === 1 }">
+    <div class="project-img col-4">
+      <div class="project-img-wrapper">
+        <a [href]="item.website" target="_blank">
+          <img src="/assets/images/harigurus-removebg-preview.png" 
+               [ngClass]="i % 2 === 0 ? 'porjectImage' : 'rightPorjectImage'"
+               height="300px" 
+               alt="project image" 
+               draggable="false">
+        </a>
+        <!-- <a href="/assets/images/harigurus.jpg" target="_blank">
+          <span class="visit-site">{{item.website}}
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </span>
+        </a> -->
+      </div>
+    </div>
+
+    <div class="col my-auto p-0" [ngClass]="i % 2 === 0 ? '' : 'rightLine'">
+      <div class="circle my" [ngClass]="i % 2 === 0 ? 'ms-auto' : 'me-auto '"></div>
+      <div class="" [ngClass]="i % 2 === 0 ? 'horizontalLine' : 'rightHorizontalLine'"></div>
+    </div>  
+
+    <div class="project-details col-6 p-0 my-auto px-3 mt-3">
+      <h3>{{item.name}}</h3>
+      <p>{{item.description}}</p>
+      <h2 class="p-0 m-0 my-3  fst-italic">Used Languages & Tools</h2>
+      <ul class="row usedLang justify-content-start list-unstyled gap-3" >
+        <li class="col-lg-2 my-auto d-flex col-md-3 border rounded-pill " *ngFor="let item of item.usedTech">
+          <p class="m-auto"> {{item}}</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<app-for-mobile></app-for-mobile>
+
+

@@ -9,7 +9,7 @@
 
 
                 <div class="cards row overflow-hidden gap-5  mx-auto row-gap-4 py-lg-5  justify-conetent-start">
-                    <div class="project col-3 d-none d-lg-block d-md-block" *ngFor="let card of cardData; let i = index"
+                    <div class="project col-3 col-md-5 col-lg-3 d-none d-lg-block d-md-block" *ngFor="let card of cardData; let i = index"
                         (mouseenter)="enableCardVisibility(i)" (mouseleave)="diableCardVisibility(i)">
                         <div class="project-wrap overflow-hidden rounded-3">
                             <div style="background-image: url({{card.imageUrl}})"

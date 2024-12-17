@@ -13,6 +13,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ContactComponent } from './components/contact/contact.component';
+import { TestComponent } from './components/test/test.component';
+import { FormsModule } from '@angular/forms';
+import { ForMobileComponent } from './components/for-mobile/for-mobile.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +25,8 @@ import { ContactComponent } from './components/contact/contact.component';
     ProjectComponent,
     SkillModelComponent,
     ContactComponent,
+    TestComponent,
+    ForMobileComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,7 +36,8 @@ import { ContactComponent } from './components/contact/contact.component';
     MatSelectModule,
     MatButtonModule,
     MatSnackBarModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -14,6 +14,9 @@ export class MainComponent implements OnInit {
   private currentRoleIndex: number = 0;
   private charIndex: number = 0;
   private isDeleting: boolean = false;
+  Styles=['cards','list']
+  currentStyle:any='cards';
+  changeContent=':-)'
   @ViewChild('home', { static: false }) homeSection!: ElementRef;
   @ViewChild('project', { static: false }) projectSection!: ElementRef;
   @ViewChild('skill', { static: false }) skillSection!: ElementRef;
@@ -123,8 +126,17 @@ export class MainComponent implements OnInit {
     setTimeout(() => {
       this.cardData[index].visible = true;
     }, 100);
+  }  
+  changeStyle() {
+    const currentIndex = this.Styles.indexOf(this.currentStyle);
+      const nextIndex = (currentIndex + 1) % this.Styles.length;
+      this.currentStyle = this.Styles[nextIndex];
   }
-
+  changeText(text:any){
+    if(text!=''){
+      this.changeContent=text
+    }else{this.changeContent=':-)'}
+  }
   private startTyping() {
     const currentRole = this.roles[this.currentRoleIndex];
     if (this.isDeleting) {
