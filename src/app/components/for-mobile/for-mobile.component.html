@@ -29,22 +29,34 @@
             [checked]="currentSlide === (i + 1)">
         </ng-container>
         <div class="cards">
-          <label class="card" *ngFor="let card of cardData; let i = index" [for]="'item-' + (i + 1)"
-            [id]="'song-' + (i + 1)">
-            <img [src]="card?.imageUrl" alt="song">
-          </label>
+          <div class="container">
+            <div class="cards">
+              <label *ngFor="let card of cardData; let i = index" class="card" [for]="'item-' + (i + 1)" [id]="'song-' + (i + 1)"  (click)="onCardSelect(card.name,card.description)">
+                <img [src]="card?.imageUrl" alt="song">
+              </label>
+            </div>
+            <div class="selected-card">
+              <span *ngIf="selectedCardName">{{ selectedCardName }}</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+<!-- <div class="mx-auto card w-75 mt-5 mb-2 p-3 shadow description">
+  {{selectedCardDesc}}
+</div> -->
+<h2 class="m-0 p-0 fw-bold text-center mb-3 pt-5 d-block d-lg-none" style="color: rgb(23, 66, 126);">Project Description</h2> 
+<div class="mx-auto card w-75  mb-2 p-3 shadow description overflow-auto d-block d-lg-none">
+  <span>{{ displayedText }}</span>
+</div>
 
 
-<div class="description" *ngFor="let item of cardData let i = index">
+
+<div  *ngFor="let item of cardData let i = index">
   <div *ngIf="currentSlide==i + 1">
-  <div class="container text-body-emphasis fw-medium" >
-    {{item.description}}
-  </div>
+
   <div>
     <h2 class="m-0 p-0 fw-bold text-center mb-3" style="color: rgb(23, 66, 126);">Used Techs</h2>    
     <ul class="list-unstyled row gap-3 justify-content-around px-3"  >
@@ -53,3 +65,4 @@
   </div>
 </div>
 </div>
+

@@ -68,8 +68,8 @@ export class SkillSetComponent  {
       { name: 'JavaScript', imgUrl: './assets/images/skills/js.png', workExperience: '1+ year', trainingExperience: '8 months' ,efficient:90},
       { name: 'Java', imgUrl: './assets/images/skills/java.png', workExperience: '1+ year', trainingExperience: '8 months',efficient:80 ,dashOffset:110},
       { name: 'jsp', imgUrl: './assets/images/skills/jsp.png', workExperience: '6+ months', trainingExperience: '3 months',efficient:50 ,dashOffset:110},
-      { name: 'React', imgUrl: './assets/images/skills/react.png', workExperience: '1+ year', trainingExperience: '8 months',efficient:83 ,dashOffset:110},
-      { name: 'NodeJs', imgUrl: './assets/images/skills/nodeJs.png', workExperience: '1+ year', trainingExperience: '8 months',efficient:83 ,dashOffset:110},
+      { name: 'React', imgUrl: './assets/images/skills/react.png', workExperience: '1+ year', trainingExperience: '8 months',efficient:53 ,dashOffset:110},
+      { name: 'NodeJs', imgUrl: './assets/images/skills/nodeJs.png', workExperience: '1+ year', trainingExperience: '8 months',efficient:53 ,dashOffset:110},
       { name: 'Sql', imgUrl: './assets/images/skills/sql.png', workExperience: '1+ year', trainingExperience: '8 months',efficient:75 ,dashOffset:110},
     ],
       otherSkill: [

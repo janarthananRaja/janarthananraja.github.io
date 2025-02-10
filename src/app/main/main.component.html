@@ -38,7 +38,7 @@
                         </p>
                     </h1>
                     <div class="row row-gap-3">
-                        <div class="col-lg-6 col-md-6 col-12 text-info">Email : <a href="mailto:janarthananlyfc@gmail.com" class="text-white text-decoration-none text-decoration-underline fs-6 fw-normal">janarthananlyfc@gmail.com</a></div>
+                        <div class="col-lg-6 col-md-6 col-12 text-info">Email : <a href="mailto:janarthananlyfc@gmail.com" class="text-white text-decoration-none text-decoration-underline fs-6 fw-normal">janarthananlyfc&#64;gmail.com</a></div>
                         <div class="col-lg-6 col-md-6 col-12 text-info">Place : <p class="m-0 p-0 text-white  fs-6 fw-normal d-inline">Nagai, India - 614806</p></div>
                         <div class="col-12"><div class="btn btn-bordered btn-primary rounded-pill  resumeBtn mb-3">Get Resume</div></div>
                     </div>
@@ -61,7 +61,7 @@
            >{{changeContent}}
         </button>
         <app-project *ngIf="currentStyle == 'cards'"></app-project>
-        <div class="position-relative" *ngIf="currentStyle == 'list'">
+        <div class="position-relative" style="top: -52px;" *ngIf="currentStyle == 'list'">
             <app-test></app-test>
         </div>
     </div>

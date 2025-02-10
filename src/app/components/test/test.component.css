@@ -58,11 +58,17 @@
     transition: transform 0.3s ease, filter 0.3s ease;
   }
   
-  .porjectImage:hover, .rightPorjectImage:hover {
+  .porjectImage:hover, .rightPorjectImage:hover   {
     transform: scale(1.05);
     filter: drop-shadow(0px 6px 15px rgba(0, 0, 0, 0.4));
   }
-  
+  .dynamicImg{
+    transition: all 0.3s ease, filter 0.3s ease;
+  }
+  .forDynamic:hover .dynamicImg{
+    transform: scale(1.05);
+    filter: drop-shadow(0px 6px 15px rgba(0, 0, 0, 0.4));
+  }
   .usedLang li {
     height: auto;
     padding: 0.4em 0.8em;
@@ -103,7 +109,7 @@
   
   @media screen and (max-width: 1399px) {
     .rightPorjectImage{
-      left: -7.5rem !important;
+      /* left: -7.5rem !important; */
     }
   }
   
@@ -111,11 +117,15 @@
     .rightPorjectImage{
       left: -9.5rem !important;
     }
+    .rightImg{
+      left: -114px !important;
+      }
   }
   
   @media screen and (max-width: 1200px) {
    
   }
+  
   
 .mobile{
   top: 48%;

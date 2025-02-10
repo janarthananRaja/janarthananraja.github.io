@@ -47,12 +47,26 @@
     [ngClass]="{ 'reverse-layout': i % 2 === 1 }">
     <div class="project-img col-4">
       <div class="project-img-wrapper">
-        <a [href]="item.website" target="_blank">
-          <img src="/assets/images/harigurus-removebg-preview.png" 
-               [ngClass]="i % 2 === 0 ? 'porjectImage' : 'rightPorjectImage'"
-               height="300px" 
-               alt="project image" 
-               draggable="false">
+        <a [href]="item.website" target="_blank" >
+          <div class="position-relative forDynamic">
+            <img src="assets/images/mobileLaptop.png" [ngClass]="i % 2 === 0 ? 'porjectImage' : 'rightPorjectImage'" height="300px"
+              alt="project image" draggable="false">
+            <div class="dynamicImg position-absolute rounded-3 overflow-hidden"[ngClass]="i % 2 !== 0 ? 'rightImg' : null"[ngStyle]="i % 2 !== 0 ? {
+                             height: '272px',
+                             left: '-16px',
+                             top: '13px',
+                             position: 'absolute',
+                             width: '398px'
+                           } : {
+                             height: '272px',
+                             left: '39px',
+                             top: '13px',
+                             position: 'absolute',
+                             width: '398px'
+                           }">
+                <img [src]="item.imageUrl" style="height: 100%; width: 100%;" class="object-fit-cover"  alt="">
+              </div>
+          </div>
         </a>
         <!-- <a href="/assets/images/harigurus.jpg" target="_blank">
           <span class="visit-site">{{item.website}}
