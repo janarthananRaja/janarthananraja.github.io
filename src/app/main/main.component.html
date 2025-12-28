@@ -29,18 +29,24 @@
                 <div class="col-lg-8 col-md-8 col-11 text-white fw-semibold fs-5" style="z-index: 22;">
                     <h1 class="introText fs-6 fst-italic" style="    text-shadow: 2px 2px 14px #00aaff;">
                         Hi, My name is Janarthanan Raja <br>
-                        A full-stack developer. <br> 
+                        A full-stack developer. <br>
                         <p class="m-0 p-0">
-                        I have worked on a wide range of web development project
-                        by usign AngularTs and SpringBoot Applications in sports scoring platform,banking plateform, with a
-                        focus on creating clean, well-crafted interfaces
-                        and functionallity that not only look great but also provide a seamless user experience.
+                            I have worked on a wide range of web development project
+                            by usign AngularTs and SpringBoot Applications in sports scoring platform,banking plateform,
+                            with a
+                            focus on creating clean, well-crafted interfaces
+                            and functionallity that not only look great but also provide a seamless user experience.
                         </p>
                     </h1>
                     <div class="row row-gap-3">
-                        <div class="col-lg-6 col-md-6 col-12 text-info">Email : <a href="mailto:janarthananlyfc@gmail.com" class="text-white text-decoration-none text-decoration-underline fs-6 fw-normal">janarthananlyfc&#64;gmail.com</a></div>
-                        <div class="col-lg-6 col-md-6 col-12 text-info">Place : <p class="m-0 p-0 text-white  fs-6 fw-normal d-inline">Nagai, India - 614806</p></div>
-                        <div class="col-12"><div class="btn btn-bordered btn-primary rounded-pill  resumeBtn mb-3">Get Resume</div></div>
+                        <div class="col-lg-6 col-md-6 col-12 text-info">Email : <a
+                                href="mailto:janarthananlyfc@gmail.com"
+                                class="text-white text-decoration-none text-decoration-underline fs-6 fw-normal">janarthananlyfc&#64;gmail.com</a>
+                        </div>
+                        <div class="col-12 mt-3">
+                            <button class="btn btn-bordered btn-primary rounded-pill resumeBtn mb-3"
+                                (click)="openResumeDialog()">Get Resume</button>
+                        </div>
                     </div>
                 </div>
                 <div class="col-3 introImg">
@@ -48,34 +54,31 @@
                         style="mask-image: radial-gradient(circle, rgb(0, 0, 0) 50%, rgba(0, 0, 0, 0) 66%);">
                 </div>
             </div>
-            
+
         </div>
     </div>
-    <svg class="svg-curve svg-top" viewBox="0 0 1440 79" style="fill:  rgb(10, 0, 27);" xmlns="http://www.w3.org/2000/svg">
+    <!-- <svg class="svg-curve svg-top" viewBox="0 0 1440 79"
+        style="fill: rgb(10, 0, 27); background-color: #0f1c3a; display: block;" xmlns="http://www.w3.org/2000/svg">
         <path d="M-100 79C-100 79 218.416 23.165 693.5 23.165C1168.58 23.165 1487 79 1487 79V0H-100V79Z"></path>
-    </svg>
+    </svg> -->
     <div #project>
-        <button
-            class="btn rounded-end-pill border btn-primary changeDesisn text-end text-nowrap"
-            (click)="changeStyle()" (mouseenter)="changeText('Change Design')" (mouseleave)="changeText('')"
-           >{{changeContent}}
+        <button class="btn rounded-end-pill border btn-primary changeDesisn text-end text-nowrap"
+            (click)="changeStyle()" (mouseenter)="changeText('Change Design')"
+            (mouseleave)="changeText('')">{{changeContent}}
         </button>
         <app-project *ngIf="currentStyle == 'cards'"></app-project>
         <div class="position-relative" style="top: -52px;" *ngIf="currentStyle == 'list'">
             <app-test></app-test>
         </div>
     </div>
-    
-    
-  
+
+
+
     <div #skill>
         <app-skill-set *ngIf="this.isSkillSection"></app-skill-set>
     </div>
     <div #contact>
-        <svg class="svg-curve   " style="fill:  rgb(10, 0, 27); margin: 15px 0px 0px 0px ;" viewBox="0 0 1440 79"
-        xmlns="http://www.w3.org/2000/svg">
-        <path d="M-100 0C-100 0 218.416 55.835 693.5 55.835C1168.58 55.835 1487 0 1487 0V79H-100V0Z"></path>
-    </svg>
-    <app-contact></app-contact>
+
+        <app-contact></app-contact>
     </div>
 </div>

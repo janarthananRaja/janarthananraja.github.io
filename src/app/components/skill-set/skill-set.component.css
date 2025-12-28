@@ -1,55 +1,140 @@
-
-.skillbgc {
-  width: 90%;
-  opacity: 0.1;
-  right: 5%;
-  top: 0; /* Optional: Ensure it's positioned correctly */
-  z-index: 1;
-}
-
-.cursor-pointer{
-    cursor: pointer;
-}
-
-.skill-image {
-  object-fit: contain;
-  height: 100%;
+/* Skill Set Container - Full Dark Background */
+:host {
+  display: block;
+  /* background: radial-gradient(circle at 50% 50%, #1a2336 0%, #02050c 100%); */
+  color: white;
+  padding: 1rem;
+  /* Increased padding */
+  position: relative;
+  overflow: hidden;
   width: 100%;
-  max-width: 100px; /* Optional: Limit image width to maintain consistent layout */
-  max-height: 100px; /* Optional: Limit image height */
-  filter: grayscale(1);
-  transition: all .2s ease-in-out;
-}
-.skill-image:hover{
-  filter: grayscale(0);
-  scale: 1.1;
-}
-.skill-image:active{
-  transition: all .2s ease-in-out;
- filter: drop-shadow(1px 1px 10px rgba(0, 0, 0, 0.348));
 }
 
-.container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+/* Section Title */
+h2.fw-bold {
+  font-size: 3rem;
+  background: linear-gradient(90deg, #60a5fa, #fff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  margin-bottom: 0.5rem;
 }
 
+p.mx-auto {
+  color: #94a3b8;
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Glassmorphism Card for Skills */
 .col-3 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 15px; 
+  justify-content: center;
+  margin-bottom: 2rem;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  padding: 1.5rem;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  width: 160px;
+  /* Fixed width for uniformity */
+  height: 160px;
+  position: relative;
 }
 
-@media screen and (max-width:460px) {
-  .skillbgc {
-		opacity: 0.1;
-		right: -3% !important;
-		top: 10% !important;
-		z-index: 1;
-    width: 100%;
-	}
-	
+/* Hover Effect: Glow & Lift */
+.col-3:hover {
+  transform: translateY(-10px) scale(1.05);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(96, 165, 250, 0.4);
+  box-shadow: 0 10px 30px -10px rgba(96, 165, 250, 0.4);
 }
 
+.skill-image {
+  object-fit: contain;
+  height: 60px;
+  width: 60px;
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.1));
+  /* Subtle glow by default */
+  transition: all 0.3s ease;
+}
+
+/* Hover: Icon pops more */
+.col-3:hover .skill-image {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 15px rgba(96, 165, 250, 0.6));
+}
+
+.col-3 p {
+  margin-top: 1rem;
+  font-weight: 500;
+  color: #cbd5e1;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+.col-3:hover p {
+  color: #fff;
+  font-weight: 600;
+}
+
+/* Container Spacing */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+/* Cursor */
+.cursor-pointer {
+  cursor: pointer;
+}
+
+/* Background accent blobs */
+:host::before {
+  content: '';
+  position: absolute;
+  top: 20%;
+  left: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, transparent 70%);
+  filter: blur(80px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+:host::after {
+  content: '';
+  position: absolute;
+  bottom: -20%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.08) 0%, transparent 70%);
+  filter: blur(80px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Responsive */
+@media screen and (max-width: 600px) {
+  .container {
+    gap: 1rem;
+  }
+
+  .col-3 {
+    width: 140px;
+    height: 140px;
+  }
+
+  h2.fw-bold {
+    font-size: 2rem;
+  }
+}

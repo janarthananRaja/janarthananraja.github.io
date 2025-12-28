@@ -16,6 +16,8 @@ import { ContactComponent } from './components/contact/contact.component';
 import { TestComponent } from './components/test/test.component';
 import { FormsModule } from '@angular/forms';
 import { ForMobileComponent } from './components/for-mobile/for-mobile.component';
+import { ResumeModalComponent } from './components/resume-modal/resume-modal.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,7 @@ import { ForMobileComponent } from './components/for-mobile/for-mobile.component
     ContactComponent,
     TestComponent,
     ForMobileComponent,
+    ResumeModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,7 +40,8 @@ import { ForMobileComponent } from './components/for-mobile/for-mobile.component
     MatButtonModule,
     MatSnackBarModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

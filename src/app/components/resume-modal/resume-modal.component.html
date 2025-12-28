@@ -1,0 +1,36 @@
+<div class="resume-modal-container">
+    <div class="modal-header">
+        <h2>Get My Resume</h2>
+        <button class="close-btn" mat-dialog-close>
+            <svg viewBox="0 0 24 24">
+                <path
+                    d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+            </svg>
+        </button>
+    </div>
+
+    <div class="modal-body">
+        <p>
+            Please enter your email address below. I'll send a copy of my resume directly to your inbox!
+        </p>
+
+        <form class="email-form" (ngSubmit)="sendResume()" #resumeForm="ngForm">
+            <div class="input-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" [(ngModel)]="email" required email
+                    placeholder="you@company.com">
+            </div>
+
+            <div class="actions">
+                <button type="submit" class="btn-primary" [disabled]="!resumeForm.form.valid || isLoading">
+                    <span *ngIf="!isLoading">Send Resume</span>
+                    <span *ngIf="isLoading" class="loader"></span>
+                </button>
+            </div>
+        </form>
+
+        <div class="status-message" *ngIf="statusMessage" [ngClass]="statusType">
+            {{ statusMessage }}
+        </div>
+    </div>
+</div>

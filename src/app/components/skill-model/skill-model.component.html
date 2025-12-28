@@ -5,25 +5,27 @@
   </div>
   <div class="container py-5 ">
     <div class="row justify-content-between">
-        <div class="col-5 mb-3">
-          <strong>Work Experience:</strong> <p class="m-0">{{skillData.workExperience}}</p>
-        </div>
-        <div class="col-5 mb-3">
-          <strong>Training Experience:</strong> <p class="m-0">{{skillData.trainingExperience}}</p>
-        </div>
+      <div class="col-5 mb-3">
+        <strong>Work Experience:</strong>
+        <p class="m-0">{{skillData.workExperience}}</p>
       </div>
-      
+      <div class="col-5 mb-3">
+        <strong>Training Experience:</strong>
+        <p class="m-0">{{skillData.trainingExperience}}</p>
+      </div>
+    </div>
+
 
     <div class="skill mx-auto">
-        <div class="outer">
-          <div class="inner">
-            <div id="number" class="text-center">
-              
-            </div>
+      <div class="outer">
+        <div class="inner">
+          <div id="number" class="text-center">
+
           </div>
         </div>
-        <span class="html-circle-skill">
-          <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
+      </div>
+      <span class="html-circle-skill">
+        <!-- <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
             <defs>
               <linearGradient id="GradientColor">
                 <stop offset="0%" stop-color="#e91e63" />
@@ -38,13 +40,11 @@
             stroke-linecap="round"
             [style.strokeDashoffset]="getStrokeDashoffset()"
           ></circle>
-          </svg>
-        </span>
-      </div>
+          </svg> -->
+      </span>
+    </div>
   </div>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-  <button  mat-dialog-close class="btn btn-primary rounded-pill border-0 mx-auto text-white">Cancel</button>
+  <button mat-dialog-close class="btn btn-primary rounded-pill border-0 mx-auto text-white">Cancel</button>
 </mat-dialog-actions>
-  
-

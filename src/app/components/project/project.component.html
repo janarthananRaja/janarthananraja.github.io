@@ -1,121 +1,105 @@
-<div class="Project-section bg-white  " >
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12 text-center" style="color: rgb(23, 66, 126); ">
-                <h2 class="m-0 p-0  fw-bold px-3" >My Work</h2>
-                <p class="m-0 p-0">A collection of projects I've worked on.</p>
+<div class="project-container">
+    <div class="section-header">
+        <h2 class="p-3">Selected Projects</h2>
+        <p>A showcase of my technical journey</p>
+    </div>
+
+    <!-- Animation Wrapper for Transitions -->
+    <div class="anim-wrapper" [ngClass]="animState">
+
+        <!-- The Glass Card (Single Active Item) -->
+        <!-- Added #cardContainer ref for mouse tracking -->
+        <div class="glass-card" #cardContainer *ngIf="currentProject">
+
+            <!-- Left: Image Section -->
+            <div class="card-image-section">
+                <!-- Fallback to a placeholder if image missing, though styling handles generic -->
+                <img [src]="currentProject.imageUrl || 'assets/placeholder-project.png'" [alt]="currentProject.name"
+                    class="project-img">
             </div>
-            <div class="col-12  py-3">
 
+            <!-- Right: Content Section -->
+            <div class="card-content-section">
+                <div class="project-category">{{currentProject.hind || 'Development'}}</div>
+                <h3 class="project-title">{{currentProject.name}}</h3>
 
-                <div class="cards row overflow-hidden gap-5  mx-auto row-gap-4 py-lg-5  justify-conetent-start">
-                    <div class="project col-3 col-md-5 col-lg-3 d-none d-lg-block d-md-block" *ngFor="let card of cardData; let i = index"
-                        (mouseenter)="enableCardVisibility(i)" (mouseleave)="diableCardVisibility(i)">
-                        <div class="project-wrap overflow-hidden rounded-3">
-                            <div style="background-image: url({{card.imageUrl}})"
-                                class="project-img"              
-                                (click)="openExternalLink(card.website)">
-                            </div>
-                            <div class="project-text">
-                                <h1 class="text-dark fw-semibold m-0">{{card.name}}</h1>
-                                <p class="project-parragraph">
-                                    {{card.description}}
-                                </p>
-                            </div>
-                        </div>
-                        <div class="project-buttons d-flex justify-content-between w-100">
-                            <div class="project-button ">
-                                <a aria-label="bay.js" [href]="card.website" rel="noopener" target="_blank">
-                                    <svg style="height:1em; width:1em" viewBox="0 0 1024 1024"
-                                        transform="scale(1.2)">
-                                        <path fill="currentColor"
-                                            d="M698.027 597.333C701.44 569.173 704 541.013 704 512c0-29.013-2.56-57.173-5.973-85.333H842.24c6.827 27.306 11.093 55.893 11.093 85.333 0 29.44-4.266 58.027-11.093 85.333M622.507 834.56c25.6-47.36 45.226-98.56 58.88-151.893h125.866c-40.96 70.4-106.24 125.013-184.746 151.893M611.84 597.333H412.16c-4.267-28.16-6.827-56.32-6.827-85.333 0-29.013 2.56-57.6 6.827-85.333h199.68c3.84 27.733 6.827 56.32 6.827 85.333 0 29.013-2.987 57.173-6.827 85.333M512 851.627c-35.413-51.2-64-107.947-81.493-168.96h162.986C576 743.68 547.413 800.427 512 851.627M341.333 341.333H216.747c40.533-70.826 106.24-125.44 184.32-151.893-25.6 47.36-44.8 98.56-59.734 151.893M216.747 682.667h124.586C356.267 736 375.467 787.2 401.067 834.56c-78.08-26.88-143.787-81.493-184.32-151.893m-34.987-85.334c-6.827-27.306-11.093-55.893-11.093-85.333 0-29.44 4.266-58.027 11.093-85.333h144.213C322.56 454.827 320 482.987 320 512c0 29.013 2.56 57.173 5.973 85.333M512 171.947c35.413 51.2 64 108.373 81.493 169.386H430.507C448 280.32 476.587 223.147 512 171.947m295.253 169.386H681.387C667.733 288 648.107 236.8 622.507 189.44c78.506 26.88 143.786 81.067 184.746 151.893M512 85.333c-235.947 0-426.667 192-426.667 426.667 0 235.52 191.147 426.667 426.667 426.667 235.52 0 426.667-191.147 426.667-426.667C938.667 276.48 747.52 85.333 512 85.333z">
-                                        </path>
-                                    </svg>
-                                </a>
-                            </div>
-                            <div class="pe-4">
-                                <h4 class="m-0 p-0 fw-bold fst-italic cursor-pointer" (click)="openSnackBar(card.name,card.duration)">
-                                    As Team Member
-                                </h4>
-                            </div>
-                        </div>
+                <!-- Tech Stack Icons -->
+                <div class="tech-stack">
+                    <!-- Dynamic Icons Loop -->
+                    <div class="tech-icon" *ngFor="let tech of getDisplayedTechs()" [title]="tech">
+                        <svg viewBox="0 0 24 24">
+                            <path [attr.d]="getTechIconPath(tech)" />
+                        </svg>
                     </div>
 
+                    <!-- Expand/Collapse Controls -->
+                    <span class="more-techs" *ngIf="!showAllTechs && currentProject.usedTech.length > 3"
+                        (click)="toggleTechView($event)" title="Show all technologies">
+                        +{{currentProject.usedTech.length - 3}} more
+                    </span>
 
+                    <span class="more-techs" *ngIf="showAllTechs && currentProject.usedTech.length > 3"
+                        (click)="toggleTechView($event)" title="Show less">
+                        Show less
+                    </span>
+                </div>
 
-                    <!--This is not responsive.
+                <p class="project-description" [title]="currentProject.description">
+                    {{currentProject.description}}
+                </p>
 
-It functions best within a screen width range of 1000-1400px, with the HTML/CSS/JS boxes on the side.
+                <ul class="bullet-points">
+                    <li *ngFor="let point of getBulletPoints()">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                        </svg>
+                        {{point}}
+                    </li>
+                </ul>
 
-This is just a Uni project.
--->
+                <div class="card-actions">
+                    <!-- Resume Button -->
+                    <button class="btn-primary" *ngIf="currentProject.isResume" (click)="openResumeDialog()">
+                        Get Resume
+                        <svg style="width:16px;height:16px;fill:currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 2 2h8c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" />
+                        </svg>
+                    </button>
 
-                 
-
-
-
-
-                    <div id="carouselExampleIndicators" class="carousel slide d-block d-lg-none d-md-none" data-bs-ride="carousel">
-                        <ol class="carousel-indicators">
-                            <li *ngFor="let card of cardData; let i = index" [class.active]="i === 0" 
-                                data-bs-target="#carouselExampleIndicators" [attr.data-bs-slide-to]="i" class="list-unstyled"></li>
-                        </ol>
-                        <div class="carousel-inner p-3">
-                            <div *ngFor="let card of cardData; let i = index" class="carousel-item" [class.active]="i === 0">
-                                <div class="project col-12" 
-                                    (mouseenter)="enableCardVisibility(i)" (mouseleave)="diableCardVisibility(i)">
-                                    <div class="project-wrap overflow-hidden rounded-3">
-                                        <div [style.backgroundImage]="'url(' + card.imageUrl + ')'"
-                                             class="project-img"              
-                                             (click)="openExternalLink(card.website)">
-                                        </div>
-                                        <div class="project-text">
-                                            <h1 class="text-dark fw-semibold m-0">{{ card.name }}</h1>
-                                            <p class="project-paragraph">{{ card.description }}</p>
-                                        </div>
-                                    </div>
-                                    <div class="project-buttons d-flex justify-content-between w-100">
-                                        <div class="project-button ">
-                                            <a aria-label="bay.js" [href]="card.website" rel="noopener" target="_blank">
-                                                <svg style="height:1em; width:1em" viewBox="0 0 1024 1024" transform="scale(1.2)">
-                                                    <path fill="currentColor"
-                                                        d="M698.027 597.333C701.44 569.173 704 541.013 704 512c0-29.013-2.56-57.173-5.973-85.333H842.24c6.827 27.306 11.093 55.893 11.093 85.333 0 29.44-4.266 58.027-11.093 85.333M622.507 834.56c25.6-47.36 45.226-98.56 58.88-151.893h125.866c-40.96 70.4-106.24 125.013-184.746 151.893M611.84 597.333H412.16c-4.267-28.16-6.827-56.32-6.827-85.333 0-29.013 2.56-57.6 6.827-85.333h199.68c3.84 27.733 6.827 56.32 6.827 85.333 0 29.013-2.987 57.173-6.827 85.333M512 851.627c-35.413-51.2-64-107.947-81.493-168.96h162.986C576 743.68 547.413 800.427 512 851.627M341.333 341.333H216.747c40.533-70.826 106.24-125.44 184.32-151.893-25.6 47.36-44.8 98.56-59.734 151.893M216.747 682.667h124.586C356.267 736 375.467 787.2 401.067 834.56c-78.08-26.88-143.787-81.493-184.32-151.893m-34.987-85.334c-6.827-27.306-11.093-55.893-11.093-85.333 0-29.44 4.266-58.027 11.093-85.333h144.213C322.56 454.827 320 482.987 320 512c0 29.013 2.56 57.173 5.973 85.333M512 171.947c35.413 51.2 64 108.373 81.493 169.386H430.507C448 280.32 476.587 223.147 512 171.947m295.253 169.386H681.387C667.733 288 648.107 236.8 622.507 189.44c78.506 26.88 143.786 81.067 184.746 151.893M512 85.333c-235.947 0-426.667 192-426.667 426.667 0 235.52 191.147 426.667 426.667 426.667 235.52 0 426.667-191.147 426.667-426.667C938.667 276.48 747.52 85.333 512 85.333z">
-                                                    </path>
-                                                </svg>
-                                            </a>
-                                        </div>
-                                        <div class="p-3">
-                                            <h4 class="m-0 p-0 fw-bold fst-italic cursor-pointer" 
-                                                (click)="openSnackBar(card.name, card.duration)">
-                                                As Team Member
-                                            </h4>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <a class="carousel-control-prev " href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        </a>
-                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        </a>
-                    </div>
-                    
-
-
-
-
-
-
-
-
-
-
-
+                    <!-- View Project Link -->
+                    <button class="btn-primary" *ngIf="!currentProject.isResume && currentProject.website"
+                        (click)="openExternalLink(currentProject.website)">
+                        View Project
+                        <svg style="width:16px;height:16px;fill:currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z" />
+                        </svg>
+                    </button>
+                    <!-- Next Button triggers animation -->
+                    <button class="btn-secondary" (click)="nextProject()">
+                        Next Project
+                    </button>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- Navigation Indicators -->
+    <div class="nav-controls">
+        <button class="nav-btn" (click)="prevProject()">
+            <svg viewBox="0 0 24 24">
+                <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+            </svg>
+        </button>
+        <div class="nav-indicators">
+            <span class="current-num">{{currentIndex + 1}}</span> / {{cardData.length || 0}}
+        </div>
+        <button class="nav-btn" (click)="nextProject()">
+            <svg viewBox="0 0 24 24">
+                <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
+            </svg>
+        </button>
+    </div>
+
 </div>

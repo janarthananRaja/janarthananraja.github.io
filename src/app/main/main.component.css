@@ -1,235 +1,258 @@
-.hero-image{
-    /* background:#2c623a; */
-    background: fixed rgb(10, 0, 27);
-  }
-  
-  .hero-image:before{
-    border-radius:0rem 0.5rem 0 0;
-    box-shadow:.5rem -.5rem 0 #fff;
-    top:0rem;
-    right:0
-  }
-
-    .welcome{
-    padding:1rem;
-    width:fit-content;
-    font-size:x-large;
-    font-weight:bold;
-    display:grid;
-    grid-template:auto/50px auto;
-    grid-gap:3px;
-    color:#000;
-    background:#fff;
-    border-radius:0 0rem 1rem 0;
-    position:relative;
-    z-index: 100;
-  }
-  
-  
-  .sub ul, .navigation ul{
-    list-style:none;
-    font-size:1rem;
-    font-weight:400;
-    padding-left:0
-  }
-  
-  .sub li{
-    display:inline-block;
-    padding-right:1rem
-  }
-  
-  h1{
-    text-align:start;
-    /* font-size:clamp(3rem, 3rem + 10vw, 5rem); */
-    color:#fff
-  }
-  
-  .typingText {
-    font-size: 50px;
-    color: white;
-    font-weight: bold;
-  }
-  .Project-section {
-    
-  }
-  
-
- .about {
-	 position: fixed;
-	 z-index: 10;
-	 bottom: 10px;
-	 right: 10px;
-	 width: 40px;
-	 height: 40px;
-	 display: flex;
-	 justify-content: flex-end;
-	 align-items: flex-end;
-	 transition: all 0.2s ease;
-}
- .about .bg_links {
-	 width: 40px;
-	 height: 40px;
-	 border-radius: 100%;
-	 display: flex;
-	 justify-content: center;
-	 align-items: center;
-	 background-color: rgba(0, 0, 0, 0.2);
-	 border-radius: 100%;
-	 backdrop-filter: blur(5px);
-	 position: absolute;
-}
- .about .logo {
-	 width: 40px;
-	 height: 40px;
-	 z-index: 9;
-	 background-image: url(https://rafaelavlucas.github.io/assets/codepen/logo_white.svg);
-	 background-size: 50%;
-	 background-repeat: no-repeat;
-	 background-position: 10px 7px;
-	 opacity: 0.9;
-	 transition: all 1s 0.2s ease;
-	 bottom: 0;
-	 right: 0;
-}
- .about .social {
-	 opacity: 0;
-	 right: 0;
-	 bottom: 0;
-}
- .about .social .icon {
-	 width: 100%;
-	 height: 100%;
-	 background-size: 20px;
-	 background-repeat: no-repeat;
-	 background-position: center;
-	 background-color: transparent;
-	 display: flex;
-	 transition: all 0.2s ease, background-color 0.4s ease;
-	 opacity: 0;
-	 border-radius: 100%;
-}
- .about .social.portfolio {
-	 transition: all 0.8s ease;
-}
- .about:hover {
-	 width: 105px;
-	 height: 105px;
-	 transition: all 0.6s cubic-bezier(0.64, 0.01, 0.07, 1.65);
-}
- .about:hover .logo {
-	 opacity: 1;
-	 transition: all 0.6s ease;
-}
- .about:hover .social {
-	 opacity: 1;
-}
- .about:hover .social .icon {
-	 opacity: 0.9;
-}
- .about:hover .social:hover {
-	 background-size: 28px;
-}
- .about:hover .social:hover .icon {
-	 background-size: 65%;
-	 opacity: 1;
-}
- .about:hover .social.portfolio {
-	 right: 0;
-	 bottom: calc(100% - 40px);
-	 transition: all 0.3s 0s cubic-bezier(0.64, 0.01, 0.07, 1.65);
-}
- .about:hover .social.portfolio .icon:hover {
-	 background-color: #698fb7;
-}
- .about:hover .social.dribbble {
-	 bottom: 45%;
-	 right: 45%;
-	 transition: all 0.3s 0.15s cubic-bezier(0.64, 0.01, 0.07, 1.65);
-}
- .about:hover .social.dribbble .icon:hover {
-	 background-color: #ea4c89;
-}
- .about:hover .social.linkedin {
-	 bottom: 0;
-	 right: calc(100% - 40px);
-	 transition: all 0.3s 0.25s cubic-bezier(0.64, 0.01, 0.07, 1.65);
-}
- .about:hover .social.linkedin .icon:hover {
-	 background-color: #0077b5;
-}
- body {
-	 font-family: "Barlow", sans-serif;
-	 margin: 0;
-	 height: 100vh;
-	 display: grid;
-	 place-items: center;
-	 background-color: #f2f2f2;
+.hero-image {
+	/* Background handled globally */
 }
 
-.cursor-pointer{
-    cursor: pointer;
+
+
+.welcome {
+	padding: 1rem;
+	width: fit-content;
+	font-size: x-large;
+	font-weight: bold;
+	display: grid;
+	grid-template: auto/50px auto;
+	grid-gap: 3px;
+	color: #fff;
+	background: rgba(13, 20, 39, 0.6);
+	backdrop-filter: blur(10px);
+	border: 1px solid rgba(255, 255, 255, 0.08);
+	border-radius: 0 0rem 1rem 0;
+	position: relative;
+	z-index: 100;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
+
+
+.sub ul,
+.navigation ul {
+	list-style: none;
+	font-size: 1rem;
+	font-weight: 400;
+	padding-left: 0
+}
+
+.sub li {
+	display: inline-block;
+	padding-right: 1rem
+}
+
+h1 {
+	text-align: start;
+	/* font-size:clamp(3rem, 3rem + 10vw, 5rem); */
+	color: #fff
+}
+
+.typingText {
+	font-size: 50px;
+	color: white;
+	font-weight: bold;
+}
+
+
+
+
+.about {
+	position: fixed;
+	z-index: 10;
+	bottom: 10px;
+	right: 10px;
+	width: 40px;
+	height: 40px;
+	display: flex;
+	justify-content: flex-end;
+	align-items: flex-end;
+	transition: all 0.2s ease;
+}
+
+.about .bg_links {
+	width: 40px;
+	height: 40px;
+	border-radius: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: rgba(0, 0, 0, 0.2);
+	border-radius: 100%;
+	backdrop-filter: blur(5px);
+	position: absolute;
+}
+
+.about .logo {
+	width: 40px;
+	height: 40px;
+	z-index: 9;
+	background-image: url(https://rafaelavlucas.github.io/assets/codepen/logo_white.svg);
+	background-size: 50%;
+	background-repeat: no-repeat;
+	background-position: 10px 7px;
+	opacity: 0.9;
+	transition: all 1s 0.2s ease;
+	bottom: 0;
+	right: 0;
+}
+
+.about .social {
+	opacity: 0;
+	right: 0;
+	bottom: 0;
+}
+
+.about .social .icon {
+	width: 100%;
+	height: 100%;
+	background-size: 20px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-color: transparent;
+	display: flex;
+	transition: all 0.2s ease, background-color 0.4s ease;
+	opacity: 0;
+	border-radius: 100%;
+}
+
+.about .social.portfolio {
+	transition: all 0.8s ease;
+}
+
+.about:hover {
+	width: 105px;
+	height: 105px;
+	transition: all 0.6s cubic-bezier(0.64, 0.01, 0.07, 1.65);
+}
+
+.about:hover .logo {
+	opacity: 1;
+	transition: all 0.6s ease;
+}
+
+.about:hover .social {
+	opacity: 1;
+}
+
+.about:hover .social .icon {
+	opacity: 0.9;
+}
+
+.about:hover .social:hover {
+	background-size: 28px;
+}
+
+.about:hover .social:hover .icon {
+	background-size: 65%;
+	opacity: 1;
+}
+
+.about:hover .social.portfolio {
+	right: 0;
+	bottom: calc(100% - 40px);
+	transition: all 0.3s 0s cubic-bezier(0.64, 0.01, 0.07, 1.65);
+}
+
+.about:hover .social.portfolio .icon:hover {
+	background-color: #698fb7;
+}
+
+.about:hover .social.dribbble {
+	bottom: 45%;
+	right: 45%;
+	transition: all 0.3s 0.15s cubic-bezier(0.64, 0.01, 0.07, 1.65);
+}
+
+.about:hover .social.dribbble .icon:hover {
+	background-color: #ea4c89;
+}
+
+.about:hover .social.linkedin {
+	bottom: 0;
+	right: calc(100% - 40px);
+	transition: all 0.3s 0.25s cubic-bezier(0.64, 0.01, 0.07, 1.65);
+}
+
+.about:hover .social.linkedin .icon:hover {
+	background-color: #0077b5;
+}
+
+
+
+.cursor-pointer {
+	cursor: pointer;
+}
+
 @media screen and (max-width:460px) {
-	.typingText{
+	.typingText {
 		font-size: 1.5rem;
 		text-align: center;
 	}
-	.introText{
+
+	.introText {
 		font-size: .8rem;
 	}
-	.introImg{
+
+	.introImg {
 		position: absolute;
 		top: -5rem;
 		z-index: 1;
 		opacity: 0.3;
 	}
-	.svg-top{
+
+	.svg-top {
 		margin-top: -4px;
 	}
 }
-.resumeBtn{
+
+.resumeBtn {
 	transition: all .3s ease;
 	box-shadow: 1px 2px 10px rgba(2, 2, 152, 0.907);
-  }
-  .resumeBtn:active{
-	box-shadow: 1px 2px 10px rgba(92, 92, 239, 0.907);
-  }
+}
 
-  /* .changeDesisn{
+.resumeBtn:active {
+	box-shadow: 1px 2px 10px rgba(92, 92, 239, 0.907);
+}
+
+/* .changeDesisn{
 	position: relative;
 	left: -105px;
 	transition: all .3s ease-in-out;
 	animation: slideAndScale in ease-out;
   } */
-  .changeDesisn {
+.changeDesisn {
 	width: 130px;
 	top: 200px;
 	z-index: 200;
 	position: relative;
-	left: 0px; /* Reset left position */
-	animation: slideAndScale 3s ease-in-out infinite; /* Infinite animation */
+	left: 0px;
+	/* Reset left position */
+	animation: slideAndScale 3s ease-in-out infinite;
+	/* Infinite animation */
 	transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, left 0.3s ease-in-out;
-  }
-  
-  .changeDesisn:hover {
-	left: 6rem; /* Keep the element in place */
-	transform: translate(0, 0) scale(1); /* Reset transform */
-	opacity: 1; /* Reset opacity */
+}
+
+.changeDesisn:hover {
+	left: 6rem;
+	/* Keep the element in place */
+	transform: translate(0, 0) scale(1);
+	/* Reset transform */
+	opacity: 1;
+	/* Reset opacity */
 	animation-play-state: paused;
-  }
-	
-  @keyframes slideAndScale {
+}
+
+@keyframes slideAndScale {
 	0% {
-	  transform: translate(-100px, -10px) scale(0.95); /* Move left and slightly up */
-	  opacity: 0.8;
+		transform: translate(-100px, -10px) scale(0.95);
+		/* Move left and slightly up */
+		opacity: 0.8;
 	}
+
 	50% {
-	  transform: translate(-105px, 0px) scale(1.05); /* Move further left and center vertically */
-	  opacity: 1;
+		transform: translate(-105px, 0px) scale(1.05);
+		/* Move further left and center vertically */
+		opacity: 1;
 	}
+
 	100% {
-	  transform: translate(-100px, -10px) scale(0.95); /* Return to the initial position */
-	  opacity: 0.8;
+		transform: translate(-100px, -10px) scale(0.95);
+		/* Return to the initial position */
+		opacity: 0.8;
 	}
-  }
-  
+}
