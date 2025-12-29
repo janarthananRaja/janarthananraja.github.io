@@ -4,35 +4,23 @@
         <p>A showcase of my technical journey</p>
     </div>
 
-    <!-- Animation Wrapper for Transitions -->
     <div class="anim-wrapper" [ngClass]="animState">
 
-        <!-- The Glass Card (Single Active Item) -->
-        <!-- Added #cardContainer ref for mouse tracking -->
         <div class="glass-card" #cardContainer *ngIf="currentProject">
 
-            <!-- Left: Image Section -->
             <div class="card-image-section">
-                <!-- Fallback to a placeholder if image missing, though styling handles generic -->
                 <img [src]="currentProject.imageUrl || 'assets/placeholder-project.png'" [alt]="currentProject.name"
                     class="project-img">
             </div>
-
-            <!-- Right: Content Section -->
             <div class="card-content-section">
                 <div class="project-category">{{currentProject.hind || 'Development'}}</div>
                 <h3 class="project-title">{{currentProject.name}}</h3>
-
-                <!-- Tech Stack Icons -->
                 <div class="tech-stack">
-                    <!-- Dynamic Icons Loop -->
                     <div class="tech-icon" *ngFor="let tech of getDisplayedTechs()" [title]="tech">
                         <svg viewBox="0 0 24 24">
                             <path [attr.d]="getTechIconPath(tech)" />
                         </svg>
                     </div>
-
-                    <!-- Expand/Collapse Controls -->
                     <span class="more-techs" *ngIf="!showAllTechs && currentProject.usedTech.length > 3"
                         (click)="toggleTechView($event)" title="Show all technologies">
                         +{{currentProject.usedTech.length - 3}} more
@@ -58,7 +46,6 @@
                 </ul>
 
                 <div class="card-actions">
-                    <!-- Resume Button -->
                     <button class="btn-primary" *ngIf="currentProject.isResume" (click)="openResumeDialog()">
                         Get Resume
                         <svg style="width:16px;height:16px;fill:currentColor" viewBox="0 0 24 24">
@@ -67,7 +54,6 @@
                         </svg>
                     </button>
 
-                    <!-- View Project Link -->
                     <button class="btn-primary" *ngIf="!currentProject.isResume && currentProject.website"
                         (click)="openExternalLink(currentProject.website)">
                         View Project
@@ -76,7 +62,6 @@
                                 d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z" />
                         </svg>
                     </button>
-                    <!-- Next Button triggers animation -->
                     <button class="btn-secondary" (click)="nextProject()">
                         Next Project
                     </button>
@@ -85,7 +70,6 @@
         </div>
     </div>
 
-    <!-- Navigation Indicators -->
     <div class="nav-controls">
         <button class="nav-btn" (click)="prevProject()">
             <svg viewBox="0 0 24 24">
