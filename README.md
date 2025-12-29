@@ -26,8 +26,8 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
-ng build --output-path docs --base-href="/"
-Copy-Item docs/index.html docs/404.html -Force
-git add docs -f
-git commit -m "deploy angular pages final"
-git push --force
+ng build --output-path docs --base-href /
+git add docs
+git add angular.json
+git commit -m "Deploy Angular portfolio to GitHub Pages"
+git push origin main
