@@ -1,137 +1,258 @@
+/* =========================================
+   MOBILE PROJECT CAROUSEL (Dark / Neon)
+   ========================================= */
+
+/* Hide radio buttons */
 input[type="radio"] {
   display: none;
 }
 
-.cards .card {
-  position: absolute;
-  width: 60%;
-  height: 100%;
-  left: 0;
-  right: 0;
-  margin: auto;
-  transition: all 0.4s ease;
-  cursor: pointer;
+.mobile-project-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  padding-bottom: 2rem;
 }
 
-.container {
+/* 3D Carousel Container */
+.carousel-container {
   width: 100%;
-  transform-style: preserve-3d;
+  height: 300px;
+  /* Adjust height for cards */
+  perspective: 1000px;
   display: flex;
   justify-content: center;
-  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.cards-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
 
-.cards {
+.cards-3d {
   position: relative;
   width: 100%;
-  height: 87%;
-  margin-bottom: 20px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-img {
+
+/* Individual Card Styling */
+.project-card {
+  position: absolute;
+  width: 70%;
+  height: 220px;
+  /* Landscape aspect ratio */
+  left: 0;
+  right: 0;
+  margin: auto;
+  transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.5s ease, z-index 0s;
+  cursor: pointer;
+  border-radius: 12px;
+  background: #1e1e1e;
+  /* Fallback */
+}
+
+/* Card Inner Content */
+.card-inner {
   width: 100%;
   height: 100%;
-  border-radius: 10px;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  /* Neon border */
+}
+
+.card-img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  object-position: center;
+  transition: transform 0.5s ease;
 }
 
-/* Carousel transform states */
-#item-1:checked~.cards #song-6,
-#item-2:checked~.cards #song-1,
-#item-3:checked~.cards #song-2,
-#item-4:checked~.cards #song-3,
-#item-5:checked~.cards #song-4,
-#item-6:checked~.cards #song-5 {
-  transform: translateX(-40%) scale(0.8);
-  opacity: 0.4;
-  z-index: 0;
+.card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+  padding: 1rem;
+  display: flex;
+  align-items: flex-end;
 }
 
-#item-1:checked~.cards #song-2,
-#item-2:checked~.cards #song-3,
-#item-3:checked~.cards #song-4,
-#item-4:checked~.cards #song-5,
-#item-5:checked~.cards #song-6,
-#item-6:checked~.cards #song-1 {
-  transform: translateX(40%) scale(0.8);
-  opacity: 0.4;
-  z-index: 0;
+.card-title {
+  color: #fff;
+  margin: 0;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
 }
 
-#item-1:checked~.cards #song-1,
-#item-2:checked~.cards #song-2,
-#item-3:checked~.cards #song-3,
-#item-4:checked~.cards #song-4,
-#item-5:checked~.cards #song-5,
-#item-6:checked~.cards #song-6 {
-  transform: translateX(0) scale(1);
+/* Carousel Transform Logic (for 6 items max hardcoded for now, can be extended) */
+/* Center Item */
+#item-1:checked~.cards-wrapper .cards-3d #song-1,
+#item-2:checked~.cards-wrapper .cards-3d #song-2,
+#item-3:checked~.cards-wrapper .cards-3d #song-3,
+#item-4:checked~.cards-wrapper .cards-3d #song-4,
+#item-5:checked~.cards-wrapper .cards-3d #song-5,
+#item-6:checked~.cards-wrapper .cards-3d #song-6 {
+  transform: translate3d(0, 0, 0) scale(1);
   opacity: 1;
+  z-index: 3;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+}
+
+/* Left Item */
+#item-1:checked~.cards-wrapper .cards-3d #song-6,
+#item-2:checked~.cards-wrapper .cards-3d #song-1,
+#item-3:checked~.cards-wrapper .cards-3d #song-2,
+#item-4:checked~.cards-wrapper .cards-3d #song-3,
+#item-5:checked~.cards-wrapper .cards-3d #song-4,
+#item-6:checked~.cards-wrapper .cards-3d #song-5 {
+  transform: translate3d(-50%, 0, -100px) scale(0.85);
+  opacity: 0.6;
+  z-index: 2;
+  filter: grayscale(80%);
+}
+
+/* Right Item */
+#item-1:checked~.cards-wrapper .cards-3d #song-2,
+#item-2:checked~.cards-wrapper .cards-3d #song-3,
+#item-3:checked~.cards-wrapper .cards-3d #song-4,
+#item-4:checked~.cards-wrapper .cards-3d #song-5,
+#item-5:checked~.cards-wrapper .cards-3d #song-6,
+#item-6:checked~.cards-wrapper .cards-3d #song-1 {
+  transform: translate3d(50%, 0, -100px) scale(0.85);
+  opacity: 0.6;
+  z-index: 2;
+  filter: grayscale(80%);
+}
+
+/* Hidden Items (Far Left/Right) */
+#item-1:checked~.cards-wrapper .cards-3d #song-3,
+#item-1:checked~.cards-wrapper .cards-3d #song-4,
+#item-1:checked~.cards-wrapper .cards-3d #song-5,
+#item-2:checked~.cards-wrapper .cards-3d #song-4,
+#item-2:checked~.cards-wrapper .cards-3d #song-5,
+#item-2:checked~.cards-wrapper .cards-3d #song-6,
+#item-3:checked~.cards-wrapper .cards-3d #song-5,
+#item-3:checked~.cards-wrapper .cards-3d #song-6,
+#item-3:checked~.cards-wrapper .cards-3d #song-1,
+#item-4:checked~.cards-wrapper .cards-3d #song-6,
+#item-4:checked~.cards-wrapper .cards-3d #song-1,
+#item-4:checked~.cards-wrapper .cards-3d #song-2,
+#item-5:checked~.cards-wrapper .cards-3d #song-1,
+#item-5:checked~.cards-wrapper .cards-3d #song-2,
+#item-5:checked~.cards-wrapper .cards-3d #song-3,
+#item-6:checked~.cards-wrapper .cards-3d #song-2,
+#item-6:checked~.cards-wrapper .cards-3d #song-3,
+#item-6:checked~.cards-wrapper .cards-3d #song-4 {
+  transform: translate3d(0, 0, -200px) scale(0.6);
+  opacity: 0;
   z-index: 1;
-  box-shadow: 3px 3px 5px 0px rgba(81, 81, 81, 0.47);
 }
 
-/* Responsive tweaks */
-@media screen and (max-width: 600px) {
-  .container {
-    height: 180px;
-    width: 90%;
-  }
-}
 
-.techList {
-  width: max-content;
-}
-
-.description {
+/* ===========================
+   DETAILS & TECH (Dark Theme)
+   =========================== */
+.section-title {
+  color: #00ffea;
+  /* Cyan neon */
   font-size: 1.2rem;
-  font-family: "Courier New", Courier, monospace;
-  white-space: pre-wrap;
-  max-height: 150px;
-  min-height: 100px;
-  color: rgb(23, 66, 126);
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.35);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  margin-bottom: 0.8rem;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
 }
 
-.description span {
-  display: inline-block;
-  animation: typing-blink 1s steps(2, end) infinite;
+.project-details {
+  width: 90%;
+  max-width: 500px;
+  margin: 0 auto;
 }
 
-@keyframes typing-blink {
+.description-box {
+  background: rgba(255, 255, 255, 0.05);
+  /* Glass dark */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 1.5rem;
+  backdrop-filter: blur(10px);
+  min-height: 120px;
+}
+
+.desc-text {
+  color: #d1d5db;
+  /* Light gray text */
+  font-family: 'Courier New', Courier, monospace;
+  /* Keeping the code aesthetic but cleaner */
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+  text-align: justify;
+}
+
+/* Typing animation cursor matching the new theme */
+.desc-text::after {
+  content: '|';
+  animation: blink 1s infinite;
+  color: #00ffea;
+}
+
+.tech-section {
+  width: 90%;
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.tech-chips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.tech-chip {
+  background: rgba(0, 255, 255, 0.05);
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  color: #00ffea;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.tech-chip:hover {
+  background: rgba(0, 255, 255, 0.15);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+@keyframes blink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
   50% {
-    border-right: 2px solid black;
-  }
-}
-
-.sathiyam:hover {
-  color: white;
-}
-
-.aboutsectionImg {
-  width: 80%;
-}
-
-.aboutsection {
-  background: transparent;
-}
-
-@media screen and (max-width: 460px) {
-  .contactInfo h2 {
-    line-height: normal !important;
-  }
-
-  .contactLinks {
-    font-size: x-small;
-  }
-
-  h1 {
-    font-size: 1rem;
-  }
-
-  .conclusion {
-    font-size: 7px;
-    line-height: normal;
+    opacity: 0;
   }
 }

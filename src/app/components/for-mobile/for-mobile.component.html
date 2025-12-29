@@ -1,70 +1,44 @@
-<!-- <div class="container">
-    <input type="radio" name="slider" id="item-1" (change)="changeSlide(1)" [checked]="currentSlide === 1">
-    <input type="radio" name="slider" id="item-2" (change)="changeSlide(2)" [checked]="currentSlide === 2">
-    <input type="radio" name="slider" id="item-3" (change)="changeSlide(3)" [checked]="currentSlide === 3">
-  
-    <div class="cards">
-      <label class="card" for="item-1" id="song-1">
-        <img src="../../../assets/images/harigurus-removebg-preview.png" alt="song">
-      </label>
-      <label class="card" for="item-2" id="song-2">
-        <img src="https://images.unsplash.com/photo-1559386484-97dfc0e15539?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1234&q=80" alt="song">
-      </label>
-      <label class="card" for="item-3" id="song-3">
-        <img src="https://images.unsplash.com/photo-1533461502717-83546f485d24?ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60" alt="song">
-      </label>
-    </div>
+<div class="mobile-project-container d-block d-lg-none mt-5">
 
-  </div>
-   -->
-<div class="d-block d-md-block d-lg-none my-4 mt-5 pt-3">
-  <div class="container position-relative">
-    <div class="projectImgSm d-flex">
-      <img src="./assets/images/mobileLaptop.png" width="100%" class="mx-auto" alt="">
-    </div>
-    <div class="position-absolute w-75 mobile">
-      <div class="container">
-        <ng-container *ngFor="let card of cardData; let i = index">
-          <input type="radio" name="slider" [id]="'item-' + (i + 1)" (change)="changeSlide(i + 1)"
-            [checked]="currentSlide === (i + 1)">
-        </ng-container>
-        <div class="cards">
-          <div class="container">
-            <div class="cards">
-              <label *ngFor="let card of cardData; let i = index" class="card" [for]="'item-' + (i + 1)"
-                [id]="'song-' + (i + 1)" (click)="onCardSelect(card.name,card.description)">
-                <img [src]="card?.imageUrl" alt="song">
-              </label>
-            </div>
-            <div class="selected-card">
-              <span *ngIf="selectedCardName">{{ selectedCardName }}</span>
+  <div class="carousel-container position-relative">
+    <ng-container *ngFor="let card of cardData; let i = index">
+      <input type="radio" name="slider" [id]="'item-' + (i + 1)" (change)="changeSlide(i + 1)"
+        [checked]="currentSlide === (i + 1)">
+    </ng-container>
+
+    <div class="cards-wrapper">
+      <div class="cards-3d">
+        <label *ngFor="let card of cardData; let i = index" class="project-card" [for]="'item-' + (i + 1)"
+          [id]="'song-' + (i + 1)" (click)="onCardSelect(card.name,card.description)">
+          <div class="card-inner">
+            <img [src]="card?.imageUrl" alt="Project Image" class="card-img">
+            <div class="card-overlay">
+              <h3 class="card-title">{{card.name}}</h3>
             </div>
           </div>
-        </div>
+        </label>
       </div>
     </div>
   </div>
-</div>
-<!-- <div class="mx-auto card w-75 mt-5 mb-2 p-3 shadow description">
-  {{selectedCardDesc}}
-</div> -->
-<h2 class="m-0 p-0 fw-bold text-center mb-3 pt-5 d-block d-lg-none" style="color: rgb(23, 66, 126);">Project Description
-</h2>
-<div class="mx-auto card w-75  mb-2 p-3 shadow description overflow-auto d-block d-lg-none">
-  <span>{{ displayedText }}</span>
-</div>
 
-
-
-<div *ngFor="let item of cardData let i = index">
-  <div *ngIf="currentSlide==i + 1">
-
-    <div>
-      <h2 class="m-0 p-0 fw-bold text-center mb-3" style="color: rgb(23, 66, 126);">Used Techs</h2>
-      <ul class="list-unstyled row gap-3 justify-content-around px-3 text-secondary">
-        <li *ngFor="let usedTech of item.usedTech" class="col-3 rounded-pill border text-center py-2 techList">
-          #{{usedTech}}</li>
-      </ul>
+  <!-- Description Section -->
+  <div class="project-details mt-4">
+    <h2 class="section-title">Project Description</h2>
+    <div class="description-box shadow">
+      <p class="desc-text">{{ displayedText }}</p>
     </div>
   </div>
+
+  <!-- Tech Stack -->
+  <div *ngFor="let item of cardData; let i = index">
+    <div *ngIf="currentSlide === i + 1" class="tech-section mt-4">
+      <h2 class="section-title">Used Techs</h2>
+      <div class="tech-chips">
+        <span *ngFor="let usedTech of item.usedTech" class="tech-chip">
+          #{{usedTech}}
+        </span>
+      </div>
+    </div>
+  </div>
+
 </div>
