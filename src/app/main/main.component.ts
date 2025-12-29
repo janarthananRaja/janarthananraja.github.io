@@ -5,12 +5,15 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ResumeModalComponent } from '../components/resume-modal/resume-modal.component';
 
+import { SharedServiceService } from '../common/shared-service.service';
+
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
+  sharedService = inject(SharedServiceService); // Inject shared service
   typingText: string = '';
   private roles: string[] = ['Web Developer', 'Angular Developer', 'Spring Boot Developer', 'Photo & Video Editor'];
   private currentRoleIndex: number = 0;
@@ -133,6 +136,10 @@ export class MainComponent implements OnInit {
     const currentIndex = this.Styles.indexOf(this.currentStyle);
     const nextIndex = (currentIndex + 1) % this.Styles.length;
     this.currentStyle = this.Styles[nextIndex];
+
+    // Sync with Shared Service Style Mode
+    // 'cards' -> 'futuristic', 'list' -> 'default'
+    this.sharedService.setStyleMode(this.currentStyle === 'cards' ? 'futuristic' : 'default');
   }
   changeText(text: any) {
     if (text != '') {

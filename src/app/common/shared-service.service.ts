@@ -80,17 +80,28 @@ export class SharedServiceService {
       usedTech: ['Angular', 'TypeScript', 'MatLap', 'Swal', 'Bootstrap', 'SpringBoot', 'PSql']
     },
     {
-      hind: 'HIRE ME',
-      name: 'GET MY RESUME',
-      website: '',
-      imageUrl: '', // Fallback will handle this
-      description: "Interested in my profile? Click below to receive my detailed resume directly to your email inbox. I'm open to new opportunities!",
+      hind: 'AI BASED (MOBILE APP)',
+      name: 'TELA - AI IT SUPPORT',
+      website: '', // Mobile App
+      imageUrl: './assets/images/tela.jpg',
+      description: "Tela is an AI-powered IT support and issue-triage platform. It analyzes user-reported problems (via text, screenshot, voice, or logs) using multiple intelligent agents, attempts automated resolution for repetitive support tasks, and generates root-cause insights with suggested fixes for deeper technical issues. All resolved solutions are stored back into the knowledge base, enabling the system to learn and auto-resolve similar issues faster in the future.",
       visible: true,
       duration: 0,
-      status: 'Open for Work',
-      usedTech: ['Resume', 'PDF', 'Email Automation'],
-      isResume: true
-    }
+      status: 'In Development',
+      usedTech: ['Angular', 'Python', 'AI Agents', 'Mobile', 'Automation']
+    },
+    // {
+    //   hind: 'HIRE ME',
+    //   name: 'GET MY RESUME',
+    //   website: '',
+    //   imageUrl: '', // Fallback will handle this
+    //   description: "Interested in my profile? Click below to receive my detailed resume directly to your email inbox. I'm open to new opportunities!",
+    //   visible: true,
+    //   duration: 0,
+    //   status: 'Open for Work',
+    //   usedTech: ['Resume', 'PDF', 'Email Automation'],
+    //   isResume: true
+    // }
   ];
 
   constructor() { }
@@ -103,7 +114,17 @@ export class SharedServiceService {
     return this.cardData;
   }
 
+  styleMode: 'default' | 'futuristic' = 'futuristic'; // Default to futuristic
+
   resetSharedData(): void {
     this.cardData = null;
+  }
+
+  setStyleMode(mode: 'default' | 'futuristic'): void {
+    this.styleMode = mode;
+  }
+
+  getStyleMode(): 'default' | 'futuristic' {
+    return this.styleMode;
   }
 }

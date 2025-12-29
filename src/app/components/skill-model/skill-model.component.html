@@ -1,50 +1,54 @@
-<h2 mat-dialog-title class="m-0 p-0 text-center text-uppercase"> {{skillData.name}}</h2>
-<mat-dialog-content class="mat-typography">
-  <div class="d-flex justify-content-center">
-    <img [src]="skillData.imgUrl" alt="" height="100px" width="100px" style="object-fit: contain;">
+<!-- FUTURISTIC STYLE -->
+<div class="futuristic-card">
+  <!-- Header -->
+  <div class="modal-header">
+    <div class="tech-title">
+      <div class="data-indicator"></div>
+      <h2 class="title-text">{{skillData.name}}</h2>
+    </div>
+    <button mat-dialog-close class="close-btn">
+      <i class="bi bi-x-lg"></i>
+    </button>
   </div>
-  <div class="container py-5 ">
-    <div class="row justify-content-between">
-      <div class="col-5 mb-3">
-        <strong>Work Experience:</strong>
-        <p class="m-0">{{skillData.workExperience}}</p>
+
+  <!-- Body -->
+  <div class="modal-body">
+    <!-- Left: Stats -->
+    <div class="stats-container">
+      <div class="stat-item">
+        <span class="stat-label">Work Experience</span>
+        <span class="stat-value">{{skillData.workExperience}}</span>
       </div>
-      <div class="col-5 mb-3">
-        <strong>Training Experience:</strong>
-        <p class="m-0">{{skillData.trainingExperience}}</p>
+      <div class="stat-item">
+        <span class="stat-label">Training Experience</span>
+        <span class="stat-value">{{skillData.trainingExperience || 'N/A'}}</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-label">Skill Status</span>
+        <span class="stat-value">Active / Verified</span>
       </div>
     </div>
 
+    <!-- Right: Visuals -->
+    <div class="visuals-container">
+      <!-- Icon Frame -->
+      <div class="hex-frame">
+        <div class="hex-bg"></div>
+        <img [src]="skillData.imgUrl" alt="Skill Icon" class="skill-icon">
+      </div>
 
-    <div class="skill mx-auto">
-      <div class="outer">
-        <div class="inner">
-          <div id="number" class="text-center">
-
-          </div>
+      <!-- Progress Ring -->
+      <div class="progress-ring-container">
+        <svg class="progress-ring-circle" width="150" height="150">
+          <circle class="ring-bg" stroke-width="8" fill="transparent" r="60" cx="75" cy="75"></circle>
+          <circle class="ring-val" stroke-width="8" fill="transparent" r="60" cx="75" cy="75"
+            [style.strokeDasharray]="circumference" [style.strokeDashoffset]="strokeDashoffset"></circle>
+        </svg>
+        <div class="progress-text">
+          <span class="percentage" id="counterNumber">0%</span>
+          <span class="efficiency-label">Efficiency</span>
         </div>
       </div>
-      <span class="html-circle-skill">
-        <!-- <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
-            <defs>
-              <linearGradient id="GradientColor">
-                <stop offset="0%" stop-color="#e91e63" />
-                <stop offset="100%" stop-color="#673ab7" />
-              </linearGradient>
-            </defs>
-            <circle
-            id="html-circle"
-            cx="80"
-            cy="80"
-            r="70"
-            stroke-linecap="round"
-            [style.strokeDashoffset]="getStrokeDashoffset()"
-          ></circle>
-          </svg> -->
-      </span>
     </div>
   </div>
-</mat-dialog-content>
-<mat-dialog-actions align="end">
-  <button mat-dialog-close class="btn btn-primary rounded-pill border-0 mx-auto text-white">Cancel</button>
-</mat-dialog-actions>
+</div>
