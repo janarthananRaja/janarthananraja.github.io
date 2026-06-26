@@ -103,7 +103,7 @@ export class SharedServiceService {
       name: 'DEVMETRICS AI',
       website: '', // Local project
       imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1268&q=80', // Placeholder
-      description: "DevMetrics AI is an enterprise contributor intelligence dashboard that tracks developer productivity, commit patterns, risk scores, and architectural focus across multiple repositories, providing actionable AI insights.",
+      description: "An application focused on gathering and evaluating the work and performance of a person or employee.",
       visible: true,
       duration: 1,
       status: 'Completed',
