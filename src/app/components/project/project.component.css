@@ -223,12 +223,11 @@
     }
 
     .project-actions-row {
-        flex-direction: column;
-        align-items: stretch;
+        flex-wrap: wrap;
         gap: 1rem;
     }
     
-    .project-actions-row .glass-btn {
+    .project-actions-row .btn-premium {
         width: 100%;
         justify-content: center;
     }
