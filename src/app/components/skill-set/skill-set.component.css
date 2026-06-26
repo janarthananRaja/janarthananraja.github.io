@@ -1,19 +1,17 @@
 /* Skill Set Container - Full Dark Background */
 :host {
   display: block;
-  /* background: radial-gradient(circle at 50% 50%, #1a2336 0%, #02050c 100%); */
-  color: white;
+  color: var(--text-primary);
   padding: 1rem;
-  /* Increased padding */
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   width: 100%;
 }
 
 /* Section Title */
 h2.fw-bold {
   font-size: 3rem;
-  background: linear-gradient(90deg, #60a5fa, #fff);
+  background: var(--primary-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -23,7 +21,7 @@ h2.fw-bold {
 }
 
 p.mx-auto {
-  color: #94a3b8;
+  color: var(--text-secondary);
   font-size: 1.1rem;
   max-width: 600px;
   margin: 0 auto;
@@ -39,10 +37,9 @@ p.mx-auto {
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   padding: 1.5rem;
   border-radius: 20px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
   width: 160px;
-  /* Fixed width for uniformity */
   height: 160px;
   position: relative;
 }
@@ -50,36 +47,35 @@ p.mx-auto {
 /* Hover Effect: Glow & Lift */
 .col-3:hover {
   transform: translateY(-10px) scale(1.05);
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(96, 165, 250, 0.4);
-  box-shadow: 0 10px 30px -10px rgba(96, 165, 250, 0.4);
+  background: var(--glass-bg);
+  border-color: var(--accent);
+  box-shadow: 0 10px 30px -10px var(--spotlight-color), 0 0 15px var(--glass-border);
 }
 
 .skill-image {
   object-fit: contain;
   height: 60px;
   width: 60px;
-  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.1));
-  /* Subtle glow by default */
+  filter: drop-shadow(0 0 5px var(--glass-border));
   transition: all 0.3s ease;
 }
 
 /* Hover: Icon pops more */
 .col-3:hover .skill-image {
   transform: scale(1.1);
-  filter: drop-shadow(0 0 15px rgba(96, 165, 250, 0.6));
+  filter: drop-shadow(0 0 15px var(--accent));
 }
 
 .col-3 p {
   margin-top: 1rem;
   font-weight: 500;
-  color: #cbd5e1;
+  color: var(--text-secondary);
   font-size: 0.95rem;
   transition: color 0.3s ease;
 }
 
 .col-3:hover p {
-  color: #fff;
+  color: var(--text-primary);
   font-weight: 600;
 }
 
@@ -104,9 +100,9 @@ p.mx-auto {
   left: -10%;
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, transparent 70%);
+  background: radial-gradient(circle, var(--spotlight-color) 0%, transparent 70%);
   filter: blur(80px);
-  z-index: 0;
+  z-index: -1;
   pointer-events: none;
 }
 
@@ -117,9 +113,9 @@ p.mx-auto {
   right: -10%;
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, rgba(139, 92, 246, 0.08) 0%, transparent 70%);
+  background: radial-gradient(circle, var(--spotlight-color) 0%, transparent 70%);
   filter: blur(80px);
-  z-index: 0;
+  z-index: -1;
   pointer-events: none;
 }
 

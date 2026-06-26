@@ -1,84 +1,106 @@
-<div class="main vh-100 vw-100  overflow-x-hidden" #home>
-    <div class="hero-image ">
-        <div class="row ">
-            <div class="header-leiste col-lg-5 col-12">
-                <div class="welcome pb-1 border shadow ps-1">
-                    <div class="my-auto"><img src="./assets/hero_setup.avif" height="40px" class="rounded-5"></div>
-                    <div>
-                        <p>JANARTHANAN RAJA</p>
-                        <hr class="my-1" />
-                        <div class="sub text-center">
-                            <ul class="m-0  ">
-                                <li class="cursor-pointer my-2 " (click)="scrollToSection('home')">About</li>
-                                <li class="cursor-pointer my-2 " (click)="scrollToSection('project')">Project</li>
-                                <li class="cursor-pointer my-2 " (click)="scrollToSection('skill')">Skill</li>
-                                <li class="cursor-pointer my-2 " (click)="scrollToSection('contact')">Contact</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="logo-text col py-3" style="z-index: 2;">
-                <div class="container pt-3">
-                    <p class="typingText" style=" height: 7px;">{{ typingText.length>0?typingText:"" }}</p>
-                </div>
-            </div>
-        </div>
-        <div class="container" #home>
-            <div class="row align-items-center position-relative">
-                <div class="col-lg-8 col-md-8 col-11 text-white fw-semibold fs-5" style="z-index: 22;">
-                    <h1 class="introText fs-6 fst-italic" style="    text-shadow: 2px 2px 14px #00aaff;">
-                        Hi, My name is Janarthanan Raja <br>
-                        A full-stack developer. <br>
-                        <p class="m-0 p-0">
-                            I have worked on a wide range of web development project
-                            by usign AngularTs and SpringBoot Applications in sports scoring platform,banking plateform,
-                            with a
-                            focus on creating clean, well-crafted interfaces
-                            and functionallity that not only look great but also provide a seamless user experience.
-                        </p>
-                    </h1>
-                    <div class="row row-gap-3">
-                        <div class="col-lg-6 col-md-6 col-12 text-info">Email : <a
-                                href="mailto:janarthananlyfc@gmail.com"
-                                class="text-white text-decoration-none text-decoration-underline fs-6 fw-normal">janarthananlyfc&#64;gmail.com</a>
-                        </div>
-                        <div class="col-12 mt-3">
-                            <button class="btn btn-bordered btn-primary rounded-pill resumeBtn mb-3"
-                                (click)="openResumeDialog()">Get Resume</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-3 introImg">
-                    <img src="./assets/hero_setup.avif" alt="" height="400px"
-                        style="mask-image: radial-gradient(circle, rgb(0, 0, 0) 50%, rgba(0, 0, 0, 0) 66%);">
-                </div>
-            </div>
-
-        </div>
+<div class="main-container hide-scrollbar" #home>
+  <!-- Modern Header / Nav -->
+  <header class="navbar-premium glass-card reveal-section">
+    <div class="nav-content w-100">
+      <div class="logo">
+        <span class="text-gradient">JANA</span>
+      </div>
+      <nav class="nav-links">
+        <a (click)="scrollToSection('home')" class="nav-link">About</a>
+        <a (click)="scrollToSection('project')" class="nav-link">Projects</a>
+        <a (click)="scrollToSection('skill')" class="nav-link">Skills</a>
+        <a (click)="scrollToSection('contact')" class="nav-link">Contact</a>
+      </nav>
     </div>
-    <!-- <svg class="svg-curve svg-top" viewBox="0 0 1440 79"
-        style="fill: rgb(10, 0, 27); background-color: #0f1c3a; display: block;" xmlns="http://www.w3.org/2000/svg">
-        <path d="M-100 79C-100 79 218.416 23.165 693.5 23.165C1168.58 23.165 1487 79 1487 79V0H-100V79Z"></path>
-    </svg> -->
-    <div #project>
-        <button class="btn rounded-end-pill border btn-primary changeDesisn text-end text-nowrap"
-            (click)="changeStyle()" (mouseenter)="changeText('Change Design')"
-            (mouseleave)="changeText('')">{{changeContent}}
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section reveal-section active">
+    <div class="hero-content">
+      <div class="hero-text-area">
+        <div class="status-badge glass-card">
+          <span class="status-dot"></span>
+          Available for new projects
+        </div>
+        <h1 class="hero-title">
+          Crafting Digital <br>
+          <span class="text-gradient">Experiences</span> With <br>
+          Code & Creativity.
+        </h1>
+        <p class="hero-description">
+          Hi, I'm <span class="highlight">Janarthanan</span>. A Full-Stack Developer specializing in building high-performance 
+          web applications with Angular and Spring Boot.
+        </p>
+        <div class="hero-actions">
+          <button class="btn-premium magnetic-item" (click)="openResumeDialog()">
+            Get Resume <i class="bi bi-download ms-2"></i>
+          </button>
+          <div class="hero-socials">
+            <a href="mailto:janarthananlyfc@gmail.com" class="social-icon-link magnetic-item"><i class="bi bi-envelope-at"></i></a>
+            <a href="https://github.com/janarthananRaja" target="_blank" class="social-icon-link magnetic-item"><i class="bi bi-github"></i></a>
+            <a href="https://linkedin.com/in/janarthanan-r-348b41283" target="_blank" class="social-icon-link magnetic-item"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="hero-visual reveal-section">
+        <div class="image-wrapper glass-card">
+          <img src="./assets/hero_setup.avif" alt="Janarthanan Portrait" class="profile-img">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="section-container reveal-section" #project>
+    <div class="section-header d-flex justify-content-between align-items-center flex-wrap gap-3">
+      <h2 class="section-title mb-0">Selected <span class="text-gradient">Works</span></h2>
+      
+      <div class="d-flex gap-3 align-items-center">
+        <!-- Category Toggle -->
+        <div class="glass-card d-flex p-1 rounded-pill" style="border-radius: 50px;">
+          <button class="btn btn-sm rounded-pill px-4" 
+                  [ngClass]="activeProjectCategory === 'Professional' ? 'btn-premium' : 'btn-transparent text-secondary'"
+                  (click)="activeProjectCategory = 'Professional'">
+            Professional
+          </button>
+          <button class="btn btn-sm rounded-pill px-4"
+                  [ngClass]="activeProjectCategory === 'Personal' ? 'btn-premium' : 'btn-transparent text-secondary'"
+                  (click)="activeProjectCategory = 'Personal'">
+            Personal
+          </button>
+        </div>
+
+        <!-- View Toggle -->
+        <button class="layout-toggle-btn" (click)="toggleLayout()">
+          <i class="bi" [ngClass]="currentStyle === 'cards' ? 'bi-list' : 'bi-grid'"></i>
+          <span class="ms-2 d-none d-md-inline">{{currentStyle === 'cards' ? 'List View' : 'Grid View'}}</span>
         </button>
-        <app-project *ngIf="currentStyle == 'cards'"></app-project>
-        <div class="position-relative" style="top: -52px;" *ngIf="currentStyle == 'list'">
-            <app-test></app-test>
-        </div>
+      </div>
     </div>
-
-
-
-    <div #skill>
-        <app-skill-set *ngIf="this.isSkillSection"></app-skill-set>
+    
+    <div class="project-view-wrapper mt-4">
+      <app-project *ngIf="currentStyle == 'cards'" [category]="activeProjectCategory"></app-project>
+      <div *ngIf="currentStyle == 'list'" class="list-view-animate">
+        <app-test [category]="activeProjectCategory"></app-test>
+      </div>
     </div>
-    <div #contact>
+  </section>
 
-        <app-contact></app-contact>
+  <!-- Skills Section -->
+  <section class="section-container reveal-section" #skill>
+    <app-skill-set *ngIf="isSkillSection"></app-skill-set>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section-container reveal-section" #contact>
+    <app-contact></app-contact>
+  </section>
+
+  <!-- Animated Theme Toggle (Floating) -->
+  <div class="design-side-toggle" (click)="toggleTheme()" [title]="isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'">
+    <div class="toggle-icon">
+      <i class="bi" [ngClass]="isDarkMode ? 'bi-moon-stars-fill' : 'bi-sun-fill'"></i>
     </div>
+  </div>
 </div>

@@ -1,90 +1,50 @@
-<div class="project-container">
-    <div class="section-header">
-        <h2 class="p-3">Selected Projects</h2>
-        <p>A showcase of my technical journey</p>
-    </div>
-
-    <div class="anim-wrapper" [ngClass]="animState">
-
-        <div class="glass-card" #cardContainer *ngIf="currentProject">
-
-            <div class="card-image-section">
+<div class="project-view-container">
+    <div class="project-carousel-wrapper" [ngClass]="animState">
+        <div class="glass-project-card" *ngIf="currentProject">
+            <div class="project-visual-side">
+                <div class="image-overlay"></div>
                 <img [src]="currentProject.imageUrl || 'assets/placeholder-project.png'" [alt]="currentProject.name"
-                    class="project-img">
+                    class="project-main-img">
+                <div class="project-badge">{{currentProject.hind || 'Development'}}</div>
             </div>
-            <div class="card-content-section">
-                <div class="project-category">{{currentProject.hind || 'Development'}}</div>
-                <h3 class="project-title">{{currentProject.name}}</h3>
-                <div class="tech-stack">
-                    <div class="tech-icon" *ngFor="let tech of getDisplayedTechs()" [title]="tech">
-                        <svg viewBox="0 0 24 24">
-                            <path [attr.d]="getTechIconPath(tech)" />
-                        </svg>
-                    </div>
-                    <span class="more-techs" *ngIf="!showAllTechs && currentProject.usedTech.length > 3"
-                        (click)="toggleTechView($event)" title="Show all technologies">
-                        +{{currentProject.usedTech.length - 3}} more
-                    </span>
 
-                    <span class="more-techs" *ngIf="showAllTechs && currentProject.usedTech.length > 3"
-                        (click)="toggleTechView($event)" title="Show less">
-                        Show less
+            <div class="project-info-side">
+                <div class="project-header-row">
+                    <h3 class="project-title-text">{{currentProject.name}}</h3>
+                    <div class="project-index-badge">
+                        {{currentIndex + 1}} / {{cardData.length || 0}}
+                    </div>
+                </div>
+
+                <div class="tech-tag-container">
+                    <span class="tech-tag" *ngFor="let tech of currentProject.usedTech">
+                        {{tech}}
                     </span>
                 </div>
 
-                <p class="project-description" [title]="currentProject.description">
+                <p class="project-desc-text">
                     {{currentProject.description}}
                 </p>
 
-                <ul class="bullet-points">
-                    <li *ngFor="let point of getBulletPoints()">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
-                        </svg>
-                        {{point}}
-                    </li>
-                </ul>
-
-                <div class="card-actions">
-                    <button class="btn-primary" *ngIf="currentProject.isResume" (click)="openResumeDialog()">
-                        Get Resume
-                        <svg style="width:16px;height:16px;fill:currentColor" viewBox="0 0 24 24">
-                            <path
-                                d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 2 2h8c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" />
-                        </svg>
+                <div class="project-actions-row">
+                    <button class="btn-premium btn-sm text-nowrap" *ngIf="currentProject.isResume"
+                        (click)="openResumeDialog()">
+                        Get Resume <i class="bi bi-file-earmark-pdf ms-2"></i>
                     </button>
 
-                    <button class="btn-primary" *ngIf="!currentProject.isResume && currentProject.website"
-                        (click)="openExternalLink(currentProject.website)">
-                        View Project
-                        <svg style="width:16px;height:16px;fill:currentColor" viewBox="0 0 24 24">
-                            <path
-                                d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z" />
-                        </svg>
+                    <a class="btn-premium btn-sm text-nowrap" *ngIf="!currentProject.isResume && currentProject.website"
+                        [href]="currentProject.website" target="_blank">
+                        View Live <i class="bi bi-box-arrow-up-right ms-2"></i>
+                    </a>
+
+                    <button class="btn-nav-control" (click)="prevProject()" title="Previous Project">
+                        <i class="bi bi-arrow-left"></i>
                     </button>
-                    <button class="btn-secondary" (click)="nextProject()">
-                        Next Project
+                    <button class="btn-nav-control" (click)="nextProject()" title="Next Project">
+                        <i class="bi bi-arrow-right"></i>
                     </button>
                 </div>
             </div>
         </div>
     </div>
-
-    <div class="nav-controls">
-        <button class="nav-btn" (click)="prevProject()">
-            <svg viewBox="0 0 24 24">
-                <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
-            </svg>
-        </button>
-        <div class="nav-indicators">
-            <span class="current-num">{{currentIndex + 1}}</span> / {{cardData.length || 0}}
-        </div>
-        <button class="nav-btn" (click)="nextProject()">
-            <svg viewBox="0 0 24 24">
-                <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
-            </svg>
-        </button>
-    </div>
-
 </div>
-<div></div>

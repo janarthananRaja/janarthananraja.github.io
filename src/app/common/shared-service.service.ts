@@ -14,6 +14,7 @@ export class SharedServiceService {
       visible: true,
       duration: 10,
       status: 'Currently Working',
+      category: 'Professional',
       usedTech: ['Angular', 'TypeScript', 'MatLap', 'Bootstrap', 'SpringBoot', 'Sql', 'picsArt']
     },
     {
@@ -24,6 +25,7 @@ export class SharedServiceService {
       description: 'SportsRuler is an app designed for updating live cricket scores. It allows users to record match scores, compute statistics, and provide real-time analytics. Whether you’re a professional or a passionate cricket fan, SportsRuler helps you update the score and keep track of the game with ease.',
       visible: true,
       duration: 10,
+      category: 'Professional',
       usedTech: ['Angular', 'TypeScript', 'MatLap', 'Bootstrap', 'SpringBoot', 'Sql']
 
     },
@@ -35,6 +37,7 @@ export class SharedServiceService {
       description: "It's a company website for my current workplace, developed using Angular, TypeScript, and Spring Boot. In this site, I have incorporated common technologies such as Angular Material, Bootstrap, and shared services for efficient and reusable components.",
       visible: true,
       duration: 1,
+      category: 'Professional',
       usedTech: ['Angular', 'TypeScript', 'MatLap', 'Bootstrap']
 
     },
@@ -46,6 +49,7 @@ export class SharedServiceService {
       description: "The Anti-Bribery System ensures users acknowledge their insurance company's terms and conditions by securely signing agreements. It promotes transparency and compliance, streamlining the acknowledgment process for both users and companies.",
       visible: true,
       duration: 1,
+      category: 'Professional',
       usedTech: ['Angular', 'TypeScript', 'MatLap', 'Swal', 'Bootstrap', 'SpringBoot', 'Sql']
 
     },
@@ -57,6 +61,7 @@ export class SharedServiceService {
       description: "The combined ratio is a financial metric that evaluates the relationship between claim-related losses and expenses relative to the premiums earned. It provides a clear measure of an insurance company’s profitability by assessing its efficiency in underwriting and managing expenses.",
       visible: true,
       duration: 2,
+      category: 'Professional',
       usedTech: ['Angular', 'TypeScript', 'MatLap', 'Swal', 'Bootstrap', 'SpringBoot', 'Sql']
     },
     {
@@ -67,6 +72,7 @@ export class SharedServiceService {
       description: "Renewal Retention Calling System (RRCS): A streamlined application designed to manage expiring insurance policies, minimize lapses, and maximize customer retention through seamless renewals and timely customer communication.",
       visible: true,
       duration: 2,
+      category: 'Professional',
       usedTech: ['Jsp', 'Swal', 'Bootstrap', 'Java', 'Sql']
     },
     {
@@ -77,6 +83,7 @@ export class SharedServiceService {
       description: "FlexCapPro is a B2B payment platform that simplifies transactions between buyers and suppliers, enabling payments via commercial cards. It benefits suppliers with early payouts and reduced tracking, while buyers enjoy discounts and minimized late payment risks. (Flight industries)",
       visible: true,
       duration: 2,
+      category: 'Professional',
       usedTech: ['Angular', 'TypeScript', 'MatLap', 'Swal', 'Bootstrap', 'SpringBoot', 'PSql']
     },
     {
@@ -88,20 +95,21 @@ export class SharedServiceService {
       visible: true,
       duration: 0,
       status: 'In Development',
+      category: 'Professional',
       usedTech: ['Angular', 'Python', 'AI Agents', 'Mobile', 'Automation']
     },
-    // {
-    //   hind: 'HIRE ME',
-    //   name: 'GET MY RESUME',
-    //   website: '',
-    //   imageUrl: '', // Fallback will handle this
-    //   description: "Interested in my profile? Click below to receive my detailed resume directly to your email inbox. I'm open to new opportunities!",
-    //   visible: true,
-    //   duration: 0,
-    //   status: 'Open for Work',
-    //   usedTech: ['Resume', 'PDF', 'Email Automation'],
-    //   isResume: true
-    // }
+    {
+      hind: 'ANALYTICS DASHBOARD',
+      name: 'DEVMETRICS AI',
+      website: '', // Local project
+      imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1268&q=80', // Placeholder
+      description: "DevMetrics AI is an enterprise contributor intelligence dashboard that tracks developer productivity, commit patterns, risk scores, and architectural focus across multiple repositories, providing actionable AI insights.",
+      visible: true,
+      duration: 1,
+      status: 'Completed',
+      category: 'Personal',
+      usedTech: ['JavaScript', 'HTML', 'CSS', 'Chart.js', 'Git']
+    }
   ];
 
   constructor() { }

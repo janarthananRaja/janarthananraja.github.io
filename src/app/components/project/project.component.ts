@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, ViewChild, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { SharedServiceService } from 'src/app/common/shared-service.service';
 import { SnackBarService } from 'src/app/services/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
@@ -9,7 +9,9 @@ import { ResumeModalComponent } from '../resume-modal/resume-modal.component';
   templateUrl: './project.component.html',
   styleUrls: ['./project.component.css']
 })
-export class ProjectComponent implements OnInit {
+export class ProjectComponent implements OnInit, OnChanges {
+  @Input() category: 'Professional' | 'Personal' = 'Professional';
+  allCardData: any[] = [];
   cardData: any[] = [];
   currentProject: any;
   currentIndex = 0;
@@ -28,10 +30,23 @@ export class ProjectComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.cardData = this.sharedService.getSharedData();
-    // Start with the first project
+    this.allCardData = this.sharedService.getSharedData();
+    this.filterData();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['category'] && !changes['category'].firstChange) {
+      this.filterData();
+    }
+  }
+
+  filterData(): void {
+    this.cardData = this.allCardData.filter(item => item.category === this.category);
+    this.currentIndex = 0;
     if (this.cardData && this.cardData.length > 0) {
       this.currentProject = this.cardData[0];
+    } else {
+      this.currentProject = null;
     }
   }
 

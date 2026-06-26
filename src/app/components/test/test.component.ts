@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
 import * as moment from 'moment';
 import { SharedServiceService } from 'src/app/common/shared-service.service';
 
@@ -8,14 +8,28 @@ import { SharedServiceService } from 'src/app/common/shared-service.service';
   templateUrl: './test.component.html',
   styleUrls: ['./test.component.css']
 })
-export class TestComponent {
+export class TestComponent implements OnInit, OnChanges {
+  @Input() category: 'Professional' | 'Personal' = 'Professional';
+  allCardData: any;
+  cardData: any;
 
   constructor(private sharedService: SharedServiceService) {}
 
-  cardData:any
-
   ngOnInit(): void {
-    this.cardData = this.sharedService.getSharedData();
+    this.allCardData = this.sharedService.getSharedData();
+    this.filterData();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['category'] && !changes['category'].firstChange) {
+      this.filterData();
+    }
+  }
+
+  filterData(): void {
+    if (this.allCardData) {
+      this.cardData = this.allCardData.filter((item: any) => item.category === this.category);
+    }
   }
 
 

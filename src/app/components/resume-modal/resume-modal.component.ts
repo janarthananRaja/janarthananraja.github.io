@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import emailjs from '@emailjs/browser';
 import { HttpClient } from '@angular/common/http';
+import { SharedServiceService } from '../../common/shared-service.service';
 
 @Component({
   selector: 'app-resume-modal',
@@ -14,7 +15,11 @@ export class ResumeModalComponent {
   statusMessage: string = '';
   statusType: 'success' | 'error' = 'success';
 
-  constructor(public dialogRef: MatDialogRef<ResumeModalComponent>, private http: HttpClient) { }
+  constructor(
+    public dialogRef: MatDialogRef<ResumeModalComponent>, 
+    private http: HttpClient,
+    public sharedService: SharedServiceService
+  ) { }
 
   // sendResume() {
   //   if (!this.email) return;

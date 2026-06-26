@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent {
-
+  get currentYear(): number {
+    return new Date().getFullYear();
+  }
 }

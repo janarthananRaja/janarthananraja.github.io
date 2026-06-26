@@ -1,46 +1,157 @@
-html,
-body {
-    height: 100%;
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    --bg-color: #050505;
+    --primary-gradient: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+    --accent: #00f2fe;
+    --text-primary: #ffffff;
+    --text-secondary: #cbd5e1;
+    --glass-bg: rgba(255, 255, 255, 0.05); /* Soft glass */
+    --glass-border: rgba(0, 242, 254, 0.25); /* Subtle Neon border for dark */
+    --spotlight-color: rgba(0, 242, 254, 0.15);
+    --glass-tag-bg: rgba(255, 255, 255, 0.05); /* Subtle dark mode tag */
+    --font-heading: 'Outfit', sans-serif;
+    --font-body: 'Outfit', sans-serif;
+    --theme-transition: background-color 0.8s cubic-bezier(0.16, 1, 0.3, 1), color 0.5s ease;
+}
+
+body.light-theme {
+    --bg-color: #f8fafc;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --glass-bg: rgba(255, 255, 255, 0.9);
+    --glass-border: rgba(37, 99, 235, 0.8); /* Stronger neon blue border for light mode */
+    --accent: #2563eb;
+    --spotlight-color: rgba(37, 99, 235, 0.35);
+    --glass-tag-bg: rgba(37, 99, 235, 0.1); /* Visible light mode tag */
+    --primary-gradient: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
 }
 
 body {
+    background-color: var(--bg-color) !important;
+    color: var(--text-primary) !important;
+    font-family: var(--font-body);
     margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
-    background-color: #02050c !important;
-    background-image: radial-gradient(circle at var(--x, 50%) var(--y, 50%),
-            rgba(59, 130, 246, 0.15) 0%,
-            transparent 50%);
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    color: white;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    transition: var(--theme-transition);
 }
 
-::-webkit-scrollbar {
-    width: 0px;
-    background: transparent;
+/* Global Content Visibility */
+h1, h2, h3, h4, h5, h6, .section-title, .hero-title {
+    color: var(--text-primary) !important;
+    font-weight: 800;
+    letter-spacing: -0.05em;
 }
 
-/* Hide scrollbar for Firefox, IE and Edge */
-html,
-body,
-.main {
-    scrollbar-width: none;
-    -ms-overflow-style: none;
+p, span, .info-value, .project-desc-text, .hero-description, .text-secondary {
+    color: var(--text-secondary) !important;
 }
 
-/* Glass Backdrop for Modals */
-.glass-backdrop {
-    background: rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(8px);
+/* Premium Glass Component System */
+.btn-premium, .btn-nav-control, .design-side-toggle, .glass-btn, .layout-toggle-btn, button.layout-toggle-btn {
+    position: relative;
+    padding: 16px 36px;
+    background: var(--glass-bg) !important;
+    backdrop-filter: blur(30px) !important;
+    -webkit-backdrop-filter: blur(30px) !important;
+    border: 2px solid var(--accent) !important; /* Luminous themed border */
+    border-radius: 100px !important;
+    color: var(--text-primary) !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    outline: none !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
-/* Material Dialog Panel Override for Glassmorphism */
-.resume-modal-panel .mat-mdc-dialog-container .mdc-dialog__surface {
-    background: transparent !important;
-    box-shadow: none !important;
-    overflow: visible !important;
+/* Specific Dark Mode Contrast Boost */
+body:not(.light-theme) .layout-toggle-btn {
+    background: rgba(0, 0, 0, 0.4) !important; /* Deeper obsidian for better contrast */
 }
 
-.resume-modal-panel .mat-mdc-dialog-container {
-    padding: 0 !important;
+.btn-premium i, .btn-nav-control i, .glass-btn i, .layout-toggle-btn i {
+    color: var(--accent) !important; /* Themed icons */
+    font-size: 1.3rem;
+    margin-right: 12px;
+}
+
+/* Spotlight Effect Engine */
+.btn-premium::before, .btn-nav-control::before, .design-side-toggle::before, .glass-btn::before, .layout-toggle-btn::before {
+    content: '';
+    position: absolute;
+    top: var(--mouse-y, 50%);
+    left: var(--mouse-x, 50%);
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, var(--spotlight-color) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: -1;
+}
+
+.btn-premium:hover::before, .btn-nav-control:hover::before, .design-side-toggle:hover::before, .glass-btn:hover::before, .layout-toggle-btn:hover::before {
+    opacity: 1;
+}
+
+.btn-premium:hover, .btn-nav-control:hover, .glass-btn:hover, .layout-toggle-btn:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+/* Sections & Spacing */
+.section-container {
+    padding: 100px 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 120px;
+}
+
+.text-gradient {
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent !important;
+}
+
+/* Cinematic Reveal */
+.reveal-section {
+    opacity: 0;
+    transform: translateY(80px);
+    transition: all 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-section.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Navbar Premium Stability */
+.navbar-premium {
+    position: fixed;
+    top: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 1300px;
+    padding: 14px 32px !important;
+    z-index: 2000;
+    background: var(--glass-bg);
+    backdrop-filter: blur(30px);
+    border: 1px solid var(--glass-border);
+    border-radius: 100px;
+}
+
+/* Layout Management Overrides */
+.layout-toggle-btn {
+    /* Ensure it pops */
+    margin-left: auto;
 }
