@@ -56,15 +56,15 @@
     <div class="section-header d-flex justify-content-between align-items-center flex-wrap gap-3">
       <h2 class="section-title mb-0">Selected <span class="text-gradient">Works</span></h2>
       
-      <div class="d-flex gap-3 align-items-center">
+      <div class="d-flex flex-wrap gap-3 align-items-center w-100 mt-3 mt-md-0">
         <!-- Category Toggle -->
-        <div class="glass-card d-flex p-1 rounded-pill" style="border-radius: 50px;">
-          <button class="btn btn-sm rounded-pill px-4" 
+        <div class="glass-card d-flex p-1 rounded-pill category-toggle-container" style="border-radius: 50px;">
+          <button class="btn btn-sm rounded-pill category-btn" 
                   [ngClass]="activeProjectCategory === 'Professional' ? 'btn-premium' : 'btn-transparent text-secondary'"
                   (click)="activeProjectCategory = 'Professional'">
             Professional
           </button>
-          <button class="btn btn-sm rounded-pill px-4"
+          <button class="btn btn-sm rounded-pill category-btn"
                   [ngClass]="activeProjectCategory === 'Personal' ? 'btn-premium' : 'btn-transparent text-secondary'"
                   (click)="activeProjectCategory = 'Personal'">
             Personal
