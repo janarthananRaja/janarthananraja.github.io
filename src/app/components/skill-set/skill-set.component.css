@@ -66,6 +66,33 @@ p.mx-auto {
   filter: drop-shadow(0 0 15px var(--accent));
 }
 
+@keyframes pulseSoft {
+  0% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.1); }
+  100% { opacity: 0.3; transform: scale(1); }
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+  .col-3 {
+    width: 110px !important;
+    height: 110px !important;
+    padding: 1rem;
+  }
+  .skill-image {
+    height: 40px;
+    width: 40px;
+  }
+  .col-3 p {
+    font-size: 0.75rem !important;
+  }
+  h2.fw-bold {
+    font-size: 2.2rem !important;
+  }
+}
+
+
+
 .col-3 p {
   margin-top: 1rem;
   font-weight: 500;

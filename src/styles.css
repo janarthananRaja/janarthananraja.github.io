@@ -115,6 +115,19 @@ body:not(.light-theme) .layout-toggle-btn {
     margin-bottom: 120px;
 }
 
+@media (max-width: 768px) {
+    .section-container {
+        padding: 60px 1.5rem;
+    }
+    .section-header {
+        margin-bottom: 3rem;
+    }
+    .btn-premium, .btn-nav-control, .design-side-toggle, .glass-btn, .layout-toggle-btn {
+        padding: 12px 24px;
+        font-size: 0.9rem !important;
+    }
+}
+
 .text-gradient {
     background: var(--primary-gradient);
     -webkit-background-clip: text;

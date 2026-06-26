@@ -106,7 +106,7 @@
 }
 
 .hero-title {
-    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-size: clamp(2rem, 8vw, 4.5rem);
     line-height: 1.1;
     margin-bottom: 1.5rem;
 }
@@ -230,10 +230,15 @@
     .hero-actions {
         flex-direction: column;
         gap: 1.5rem;
+        width: 100%;
+    }
+    
+    .btn-premium {
+        width: 100%;
     }
 
     .hero-visual {
-        max-width: 400px;
+        max-width: 300px;
         margin: 0 auto;
     }
 }

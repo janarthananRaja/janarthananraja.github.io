@@ -215,20 +215,26 @@
 
 @media (max-width: 600px) {
     .project-info-side {
-        padding: 2rem;
+        padding: 1.5rem;
     }
 
     .project-title-text {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
 
     .project-actions-row {
-        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+    }
+    
+    .project-actions-row .glass-btn {
+        width: 100%;
         justify-content: center;
     }
 
     .project-desc-text {
-        font-size: 1rem;
-        margin-bottom: 2.5rem;
+        font-size: 0.95rem;
+        margin-bottom: 2rem;
     }
 }
