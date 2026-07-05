@@ -100,15 +100,15 @@ export class SharedServiceService {
     },
     {
       hind: 'ANALYTICS DASHBOARD',
-      name: 'DEVMETRICS AI',
-      website: '', // Local project
-      imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1268&q=80', // Placeholder
-      description: "An application focused on gathering and evaluating the work and performance of a person or employee.",
+      name: 'DEVPULSE',
+      website: 'https://devpulse-git.netlify.app/',
+      imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1268&q=80',
+      description: "An enterprise-grade Git contribution analytics platform that compiles commit data, active hours, and code volume changes in real-time. Features interactive contribution heatmaps, code complexity charts, and automated developer scorecards.",
       visible: true,
       duration: 1,
       status: 'Completed',
       category: 'Personal',
-      usedTech: ['JavaScript', 'HTML', 'CSS', 'Chart.js', 'Git']
+      usedTech: ['Angular', 'TypeScript', 'Java', 'Spring Boot', 'Docker', 'Render', 'Netlify', 'Chart.js']
     }
   ];
 
