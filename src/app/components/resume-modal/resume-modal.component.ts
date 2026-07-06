@@ -51,15 +51,16 @@ export class ResumeModalComponent {
     this.isLoading = true;
     this.statusMessage = '';
 
-    const sendResumeUrl = 'https://mailer-0lpe.onrender.com/api/send-resume';
+    // const sendResumeUrl = 'https://emp-wrk-sts-api.onrender.com/api/send-resume';
+    const sendResumeUrl = 'http://localhost:8080/api/send-resume';
     const payload = { email: this.email };
 
     this.http.post(sendResumeUrl, payload, { responseType: 'text' }).subscribe({
       next: (res) => {
         this.statusType = 'success';
-        this.statusMessage = res || 'Resume launched into your mailbox!';
+        this.statusMessage = 'Success! Please check your inbox (and spam folder) for a copy of my resume sent from janarthananlyfc@gmail.com.';
         this.isLoading = false;
-        setTimeout(() => this.dialogRef.close(), 3000);
+        setTimeout(() => this.dialogRef.close(), 6000);
       },
       error: (err) => {
         this.statusType = 'error';

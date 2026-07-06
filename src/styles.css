@@ -174,3 +174,15 @@ body:not(.light-theme) .layout-toggle-btn {
     /* Ensure it pops */
     margin-left: auto;
 }
+
+/* Glassmorphism Styling for Resume Dialog */
+.resume-modal-panel .mdc-dialog__surface {
+    background: var(--bg-color) !important;
+    border: 2px solid var(--glass-border) !important;
+    border-radius: 24px !important;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3) !important;
+    backdrop-filter: blur(30px) !important;
+    -webkit-backdrop-filter: blur(30px) !important;
+    padding: 1.5rem !important;
+    transition: var(--theme-transition) !important;
+}

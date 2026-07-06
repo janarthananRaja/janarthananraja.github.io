@@ -18,9 +18,11 @@
             </div>
 
             <div class="modal-actions">
-                <button type="submit" class="btn-premium" [disabled]="!resumeForm.form.valid || isLoading">
+                <button type="submit" class="btn-premium d-flex align-items-center justify-content-center" [disabled]="!resumeForm.form.valid || isLoading">
                     <span *ngIf="!isLoading">Send Now <i class="bi bi-send-fill ms-2"></i></span>
-                    <span *ngIf="isLoading" class="premium-loader"></span>
+                    <span *ngIf="isLoading" class="d-flex align-items-center justify-content-center">
+                        Sending... <span class="premium-loader ms-2"></span>
+                    </span>
                 </button>
             </div>
         </form>
