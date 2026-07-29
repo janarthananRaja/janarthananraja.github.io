@@ -109,6 +109,18 @@ export class SharedServiceService {
       status: 'Completed',
       category: 'Personal',
       usedTech: ['Angular', 'TypeScript', 'Java', 'Spring Boot', 'Docker', 'Render', 'Netlify', 'Chart.js']
+    },
+    {
+      hind: 'HEALTHCARE & PATHOLOGY OS',
+      name: 'ARAM DIAGNOSTICS',
+      website: 'https://aramlab.netlify.app/',
+      imageUrl: 'https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=1200&q=80',
+      description: 'An advanced digital experience and operating system web application for Aram Diagnostics, a premier clinical pathology and diagnostic laboratory . Built with 7 distinct architectural design paradigms (ranging from minimalism to dark futuristic lab OS), interactive specimen collection panels, diagnostic package booking workflows, online report verification, and seamless health tips integration.',
+      visible: true,
+      duration: 1,
+      status: 'Completed',
+      category: 'Professional',
+      usedTech: ['React', 'JavaScript', 'Tailwind CSS', 'Framer Motion', 'Lenis Scroll', 'Netlify']
     }
   ];
 
