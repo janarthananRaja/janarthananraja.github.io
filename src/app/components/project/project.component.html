@@ -46,5 +46,16 @@
                 </div>
             </div>
         </div>
+        <div class="project-progress" *ngIf="cardData.length > 1" aria-label="Project carousel position">
+            <button *ngFor="let project of cardData; let i = index"
+                type="button"
+                class="project-progress-dot"
+                [class.active]="i === currentIndex"
+                [attr.aria-label]="'Show project ' + (i + 1) + ': ' + project.name"
+                [attr.aria-current]="i === currentIndex ? 'true' : null"
+                (click)="goToProject(i)">
+            </button>
+            <span class="project-progress-caption">EXPLORE THE WORK <i class="bi bi-arrow-right"></i></span>
+        </div>
     </div>
 </div>
