@@ -20,9 +20,9 @@ body.light-theme {
     --text-primary: #0f172a;
     --text-secondary: #475569;
     --glass-bg: rgba(255, 255, 255, 0.9);
-    --glass-border: rgba(37, 99, 235, 0.8); /* Stronger neon blue border for light mode */
+    --glass-border: rgba(37, 99, 235, 0.16); /* Soft blue edge for a cleaner light theme */
     --accent: #2563eb;
-    --spotlight-color: rgba(37, 99, 235, 0.35);
+    --spotlight-color: rgba(37, 99, 235, 0.10);
     --glass-tag-bg: rgba(37, 99, 235, 0.1); /* Visible light mode tag */
     --primary-gradient: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
 }
