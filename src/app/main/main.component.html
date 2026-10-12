@@ -87,6 +87,89 @@
     </div>
   </section>
 
+  <!-- Interactive Engineering Briefs -->
+  <section class="section-container reveal-section engineering-briefs" #engineering>
+    <div class="briefs-heading">
+      <div>
+        <span class="eyebrow">HOW I THINK</span>
+        <h2 class="section-title">Engineering <span class="text-gradient">playbook</span></h2>
+      </div>
+      <p class="briefs-intro">A closer look at the decisions behind the interfaces, APIs, and systems I build. Open any brief to explore the thinking.</p>
+    </div>
+
+    <div class="brief-list">
+      <details class="brief-item" open>
+        <summary>
+          <span class="brief-number">01</span>
+          <span class="brief-title-wrap"><strong>Product UI & interaction design</strong><small>Make complex workflows feel clear</small></span>
+          <span class="brief-tag">FRONTEND</span>
+          <span class="brief-chevron" aria-hidden="true">+</span>
+        </summary>
+        <div class="brief-content">
+          <p>Build interfaces around the user's task, not around the component library. Keep hierarchy obvious and states predictable.</p>
+          <div class="brief-points"><span>Reusable Angular components</span><span>Responsive layouts</span><span>Loading, empty & error states</span><span>Accessible interaction patterns</span></div>
+          <div class="brief-stack">ANGULAR · TYPESCRIPT · HTML · CSS · ANGULAR MATERIAL</div>
+        </div>
+      </details>
+
+      <details class="brief-item">
+        <summary>
+          <span class="brief-number">02</span>
+          <span class="brief-title-wrap"><strong>API & backend architecture</strong><small>Connect screens to dependable services</small></span>
+          <span class="brief-tag">BACKEND</span>
+          <span class="brief-chevron" aria-hidden="true">+</span>
+        </summary>
+        <div class="brief-content">
+          <p>Keep business rules in the service layer, define clear API contracts, validate inputs, and make failure paths intentional.</p>
+          <div class="brief-points"><span>REST API contracts</span><span>Service-layer boundaries</span><span>Validation & exception handling</span><span>Relational data modelling</span></div>
+          <div class="brief-stack">JAVA · SPRING BOOT · REST · POSTGRESQL · MYSQL</div>
+        </div>
+      </details>
+
+      <details class="brief-item">
+        <summary>
+          <span class="brief-number">03</span>
+          <span class="brief-title-wrap"><strong>Identity, permissions & data scope</strong><small>Security belongs on the server</small></span>
+          <span class="brief-tag">SECURITY</span>
+          <span class="brief-chevron" aria-hidden="true">+</span>
+        </summary>
+        <div class="brief-content">
+          <p>Authentication identifies a caller; authorization decides what that caller can do and which records they can access. UI hiding alone is not access control.</p>
+          <div class="brief-points"><span>JWT authentication flows</span><span>Role and permission checks</span><span>Hierarchical organisational scope</span><span>Evidence-led verification</span></div>
+          <div class="brief-stack">SPRING SECURITY · JWT · RBAC · API AUTHORIZATION</div>
+        </div>
+      </details>
+
+      <details class="brief-item">
+        <summary>
+          <span class="brief-number">04</span>
+          <span class="brief-title-wrap"><strong>Engineering analytics & telemetry</strong><small>Useful metrics must be explainable</small></span>
+          <span class="brief-tag">DATA</span>
+          <span class="brief-chevron" aria-hidden="true">+</span>
+        </summary>
+        <div class="brief-content">
+          <p>Turn repository and operational data into signals people can inspect. Show metric definitions and evidence instead of presenting activity counts as productivity.</p>
+          <div class="brief-points"><span>Repository health signals</span><span>Ownership and hotspot analysis</span><span>API pagination and rate limits</span><span>Drill-down verification</span></div>
+          <div class="brief-stack">GITHUB API · SPRING BOOT · ANGULAR · GITHUB ACTIONS</div>
+        </div>
+      </details>
+
+      <details class="brief-item">
+        <summary>
+          <span class="brief-number">05</span>
+          <span class="brief-title-wrap"><strong>Delivery, debugging & reliability</strong><small>Find the cause, prove the fix</small></span>
+          <span class="brief-tag">DELIVERY</span>
+          <span class="brief-chevron" aria-hidden="true">+</span>
+        </summary>
+        <div class="brief-content">
+          <p>Use logs, reproducible steps, and measurable checks to diagnose issues. Prefer repeatable automation over fragile manual work.</p>
+          <div class="brief-points"><span>Evidence-led troubleshooting</span><span>Build and deployment workflows</span><span>Safe credential handling</span><span>Automated checks and checkpoints</span></div>
+          <div class="brief-stack">GIT · GITHUB ACTIONS · DOCKER · CI/CD FUNDAMENTALS</div>
+        </div>
+      </details>
+    </div>
+  </section>
+
   <!-- Skills Section -->
   <section class="section-container reveal-section" #skill>
     <app-skill-set *ngIf="isSkillSection"></app-skill-set>
