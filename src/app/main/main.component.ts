@@ -128,9 +128,11 @@ export class MainComponent implements OnInit, AfterViewInit {
       document.body.classList.add('light-theme');
       this.sharedService.setStyleMode('default');
     } else {
-      this.isDarkMode = true;
-      document.body.classList.remove('light-theme');
-      this.sharedService.setStyleMode('futuristic');
+      // First visit uses the requested clean light theme; saved preference still wins.
+      this.isDarkMode = false;
+      document.body.classList.add('light-theme');
+      this.sharedService.setStyleMode('default');
+      localStorage.setItem('jana-portfolio-theme', 'light');
     }
   }
 
