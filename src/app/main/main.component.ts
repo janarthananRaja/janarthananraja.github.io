@@ -123,16 +123,18 @@ export class MainComponent implements OnInit, AfterViewInit {
 
   private loadTheme() {
     const savedTheme = localStorage.getItem('jana-portfolio-theme');
-    if (savedTheme === 'light') {
-      this.isDarkMode = false;
-      document.body.classList.add('light-theme');
-      this.sharedService.setStyleMode('default');
+    if (savedTheme === 'dark') {
+      this.isDarkMode = true;
+      document.body.classList.remove('light-theme');
+      this.sharedService.setStyleMode('futuristic');
     } else {
-      // First visit uses the requested clean light theme; saved preference still wins.
+      // First visit defaults to light; an explicitly saved light preference stays light.
       this.isDarkMode = false;
       document.body.classList.add('light-theme');
       this.sharedService.setStyleMode('default');
-      localStorage.setItem('jana-portfolio-theme', 'light');
+      if (savedTheme !== 'light') {
+        localStorage.setItem('jana-portfolio-theme', 'light');
+      }
     }
   }
 
