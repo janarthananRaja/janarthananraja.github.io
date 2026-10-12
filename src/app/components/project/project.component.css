@@ -237,3 +237,21 @@
         margin-bottom: 2rem;
     }
 }
+
+/* Interactive carousel navigation rail */
+.project-progress { display:flex; align-items:center; gap:.42rem; padding:1rem .2rem .1rem; }
+.project-progress-dot { position:relative; overflow:hidden; width:9px; height:9px; padding:0; border:0; border-radius:20px; background:rgba(100,116,139,.28); cursor:pointer; transition:width .35s cubic-bezier(.2,.8,.2,1),background .3s ease,box-shadow .3s ease; }
+.project-progress-dot:hover { background:rgba(37,99,235,.55); }
+.project-progress-dot.active { width:34px; background:linear-gradient(90deg,#2563eb,#7c3aed); box-shadow:0 0 14px rgba(37,99,235,.2); }
+.project-progress-dot.active::after { content:""; position:absolute; inset:0; background:linear-gradient(100deg,transparent,rgba(255,255,255,.72),transparent); transform:translateX(-100%); animation:progress-glint 2.4s ease-in-out infinite; }
+.project-progress-caption { margin-left:auto; color:var(--text-secondary); font:700 .62rem var(--font-heading); letter-spacing:.12em; }
+.project-progress-caption i { color:var(--accent); margin-left:.3rem; }
+.glass-project-card { transform-origin:center; transition:box-shadow .35s ease,border-color .35s ease; }
+.glass-project-card:hover { box-shadow:0 28px 80px rgba(37,99,235,.12); }
+.project-main-img { transition:transform .9s cubic-bezier(.2,.75,.25,1),filter .6s ease; }
+.glass-project-card:hover .project-main-img { transform:scale(1.045); filter:saturate(1.08); }
+.project-visual-side::after { content:""; position:absolute; inset:0; z-index:1; pointer-events:none; background:linear-gradient(135deg,rgba(37,99,235,.12),transparent 48%,rgba(124,58,237,.12)); opacity:.55; mix-blend-mode:screen; }
+.project-badge { z-index:3; }
+@keyframes progress-glint { 65%,100% { transform:translateX(150%); } }
+@media(max-width:600px) { .project-progress { padding:1rem .15rem 0; } .project-progress-caption { font-size:.52rem; letter-spacing:.06em; } }
+@media(prefers-reduced-motion:reduce) { .project-progress-dot,.project-main-img,.glass-project-card { transition:none!important; } .project-progress-dot.active::after { animation:none!important; } }
