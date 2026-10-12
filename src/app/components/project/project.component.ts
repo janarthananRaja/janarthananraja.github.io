@@ -120,6 +120,27 @@ export class ProjectComponent implements OnInit, OnChanges {
     }, 500);
   }
 
+  goToProject(index: number): void {
+    if (this.isAnimating || index === this.currentIndex || index < 0 || index >= this.cardData.length) return;
+
+    this.isAnimating = true;
+    this.animState = 'leaving';
+
+    setTimeout(() => {
+      this.showAllTechs = false;
+      this.currentIndex = index;
+      this.currentProject = this.cardData[index];
+      this.animState = 'entering';
+
+      requestAnimationFrame(() => {
+        setTimeout(() => {
+          this.animState = 'visible';
+          setTimeout(() => this.isAnimating = false, 420);
+        }, 70);
+      });
+    }, 280);
+  }
+
   openExternalLink(url: string): void {
     if (url) {
       window.open(url, '_blank', 'noopener,noreferrer');
